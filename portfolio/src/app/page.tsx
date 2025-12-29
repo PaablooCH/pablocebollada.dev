@@ -1,13 +1,65 @@
-import ConsoleTyping from "@/components/consoleTyping";
+import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
 import Image from "next/image";
 
-const introductionLines = [
-    '$mark$%$end$ $blank$ πPablo --help$end$',
-    '$title$    COMMANDS$end$',
-    '$blank$        clean_code.$end$',
-    '$blank$        solid_architecture.$end$',
-    '$blank$        real_impact.$end$',
-    '$mark$%$end$'
+const introductionLines: CommandLine[] = [
+    {
+        cmds: [
+            {
+                color: 'mark',
+                text: '%' 
+            },
+            {
+                color: 'blank',
+                text: ' πPablo --help' 
+            }
+        ]
+    },
+    {
+        cmds: [
+            {
+                color: 'title',
+                text: '    COMMANDS' 
+            }
+        ]
+    },
+    {
+        cmds: [
+            {
+                color: 'blank',
+                text: '        clean_code.' 
+            }
+        ]
+    },
+    {
+        cmds: [
+            {
+                color: 'blank',
+                text: '        solid_architecture.' 
+            }
+        ]
+    },
+    {
+        cmds: [
+            {
+                color: 'blank',
+                text: '        real_impact.' 
+            }
+        ]
+    },
+    {
+        cmds: [
+            {
+                color: 'mark',
+                text: '%' 
+            }
+        ]
+    }
+        // '$mark$%$end$ $blank$ πPablo --help$end$',
+    // '$title$    COMMANDS$end$',
+    // '$blank$        clean_code.$end$',
+    // '$blank$        solid_architecture.$end$',
+    // '$blank$        real_impact.$end$',
+    // '$mark$%$end$'
 ]
 
 export default function Home() {
@@ -30,8 +82,8 @@ export default function Home() {
                     height={200}
                     alt="Pablo Cebollada">
                 </Image>
-                <div className="mt-32 text-lg md:text-xl leading-relaxed code">
-                    <ConsoleTyping lines={introductionLines} delay={4000}></ConsoleTyping>
+                <div className="mt-24 text-lg md:text-xl leading-relaxed code">
+                    <ConsoleTyping block={introductionLines} delay={4000}></ConsoleTyping>
                 </div>
                 <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-yellow-300">π</div>
             </section>
