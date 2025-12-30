@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navBar";
-import FooterBar from "@/components/footerBar";
 import { ThemeProvider } from "@/libs/themeProvider";
 
 const jetbrains = JetBrains_Mono({
@@ -29,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <meta name="color-scheme" content="light dark"></meta>
-            <body className={`${jetbrains.variable} ${inter.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}>
+            <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth`}>
                 <ThemeProvider>
                     <NavBar></NavBar>
                     <main className="grow">
