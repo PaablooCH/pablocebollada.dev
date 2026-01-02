@@ -93,3 +93,18 @@
 .cursor_animation {
     animation: blink 1.2s step-end infinite;
 }
+
+.unblur_backdrop {
+    animation: unblur-backdrop 1s ease-out;
+}
+
+@keyframes unblur-backdrop {
+    from {
+        backdrop-filter: blur(8px);
+        opacity: 1;
+    }
+    to {
+        backdrop-filter: blur(0px);
+        opacity: 0;
+    }
+}

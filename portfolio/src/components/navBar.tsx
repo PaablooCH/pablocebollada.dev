@@ -1,7 +1,10 @@
 'use client'
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import OutroPanels from "./outroPanels";
 import { setTimeout } from "timers";
+import { usePathname, useRouter } from "next/navigation";
+
 function GetMyTime(): string {
     return new Date().toLocaleTimeString('es-ES', {
         timeZone: 'Europe/Madrid',
@@ -13,6 +16,10 @@ function GetMyTime(): string {
 export default function NavBar() {
     const [dropDown, setDropDown] = useState(false);
     const [myTime, setMyTime] = useState('00:00');
+    const [renderPanels, setRenderPanels] = useState(false);
+
+    const router = useRouter();
+    const pathname = usePathname()
 
     useEffect(() => {
         setMyTime(GetMyTime());
@@ -22,19 +29,39 @@ export default function NavBar() {
         return () => clearInterval(interval);
     }, []);
 
+    const activateOutro = (href: string) => {
+        const remainSamePage = pathname === href;
+        if (remainSamePage) 
+        {
+            setDropDown(false);
+        }
+        else {
+            router.prefetch(href);
+            setRenderPanels(true);
+            
+            setTimeout(() => { 
+                setDropDown(false);
+                router.push(href);
+            }, 1000);
+            
+            setTimeout(() => { 
+                setRenderPanels(false);
+            }, 3000);
+        }
+    }
+
     return (
         <div className="relative">
-            <div className={`fixed bg-red-500 transition top-0 left-0 h-dvh w-screen px-10 py-4 duration-500 flex flex-col justify-between text-white z-10 ${dropDown ? 'bounce' : '-translate-y-full'}`}>
+            {renderPanels && <OutroPanels></OutroPanels>}
+            <div className={`fixed bg-red-500 transition-transform top-0 left-0 h-dvh w-screen px-10 py-4 duration-500 flex flex-col justify-between text-white z-10 ${dropDown ? 'bounce' : '-translate-y-full'}`}>
                 <div className="font-extrabold text-xl text-end">
                     <span className="cursor-pointer hover:text-black" onClick={() => setDropDown(false)}>Close</span>
                 </div>
-                <div className="flex flex-col items-center justify-center gap-8">
-                    <Link href="/">
-                        <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => setDropDown(false)}>HOME</h2>
-                    </Link>
-                    <Link href="/about">
-                        <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => setDropDown(false)}>ABOUT</h2>
-                    </Link>
+                <div className="flex flex-col items-center justify-center gap-8 tracking-wide">
+                    <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => activateOutro("/")}>HOME</h2>
+                    <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => activateOutro("/about")}>ABOUT ME</h2>
+                    <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => activateOutro("/projects")}>PROJECTS</h2>
+
                     <div className="flex flex-row gap-8">
                         <Link href="https://www.linkedin.com/in/pablo-cebollada-hernández/" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="size-8 hover:text-black" viewBox="0 0 16 16">
@@ -56,13 +83,10 @@ export default function NavBar() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-[1fr_auto_1fr] w-full items-center px-10 py-4 bg-white border-gray-300 text-gray-700
-                            dark:bg-black dark:border-gray-700 dark:text-gray-300">
-                <Link href="/">
-                    <h1 className="font-extrabold text-xl">
-                        PABLO CEBOLLADA
-                    </h1>
-                </Link>
+            <div className="grid grid-cols-[1fr_auto_1fr] w-full items-center px-10 py-4 bg-black border-gray-700 text-gray-300">
+                <h3 className="font-extrabold text-xl tracking-wide">
+                    <span className="cursor-pointer" onClick={() => activateOutro("/")}>PABLO CEBOLLADA</span>
+                </h3>
                 <div className="justify-self-center grid grid-rows-2 cursor-pointer" onClick={() => { setDropDown(true) }}>
                     <div className="border-b-2 border-gray-300 h-1 w-12 md:w-24"></div>
                     <div className="border-b-2 border-gray-300 h-2 w-12 md:w-24"></div>
