@@ -87,8 +87,29 @@ export default function Home() {
                 </div>
                 <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-yellow-300">π</div>
             </section>
-            <section id="">
 
+            <div className="h-px bg-linear-to-r from-transparent via-neutral-800 to-transparent my-8" />
+
+            {/* About Section */}
+            <section id="about" className="min-h-[calc(100dvh-4rem-1px)] px-10 pt-4">
+                <h2 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">A BIT ABOUT ME</h2>
+                <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl w-2/3">
+                    <p>
+                        Full-stack developer with professional experience building web applications and a strong background in system-level programming.
+                    </p>
+                    <p>
+                        I focus on creating clean, maintainable, and scalable solutions, applying a systems-oriented mindset to modern web development.
+                    </p>
+                    <p>
+                        In my free time, I enjoy exploring and experimenting with new technologies.
+                    </p>
+                </div>
+                <Image className="w-auto h-auto grayscale object-none hover:grayscale-0 mt-8"
+                    src={"/presentation.jpg"}
+                    width={800}
+                    height={533}
+                    alt="Pablo Cebollada">
+                </Image>
             </section>
         </div>
     );
