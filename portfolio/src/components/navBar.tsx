@@ -1,10 +1,26 @@
 'use client'
 import Link from "next/link";
-import ThemeSwitch from "./themeSwitch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { setTimeout } from "timers";
+function GetMyTime(): string {
+    return new Date().toLocaleTimeString('es-ES', {
+        timeZone: 'Europe/Madrid',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}    
 
 export default function NavBar() {
     const [dropDown, setDropDown] = useState(false);
+    const [myTime, setMyTime] = useState('00:00');
+
+    useEffect(() => {
+        setMyTime(GetMyTime());
+        const interval = setInterval(() => {
+            setMyTime(GetMyTime());
+        }, 60000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="relative">
@@ -51,9 +67,7 @@ export default function NavBar() {
                     <div className="border-b-2 border-gray-300 h-1 w-12 md:w-24"></div>
                     <div className="border-b-2 border-gray-300 h-2 w-12 md:w-24"></div>
                 </div>
-                <div className="justify-self-end">
-                    <ThemeSwitch></ThemeSwitch>
-                </div>
+                <span className="justify-self-end font-extrabold text-xl tracking-wide">BCN · { myTime }</span>
             </div>
         </div>
     );

@@ -64,7 +64,7 @@ const introductionLines: CommandLine[] = [
 
 export default function Home() {
     return (
-        <div className="bg-black">
+        <div>
             {/* Hero Section */}
             <section id="hero" className="relative min-h-[calc(100dvh-60px)] px-10 pt-5">
                 <div className="font-extrabold text-9xl cursor-default text-gray-300">
@@ -82,7 +82,7 @@ export default function Home() {
                     height={200}
                     alt="Pablo Cebollada">
                 </Image>
-                <div className="mt-24 text-lg md:text-xl leading-relaxed code">
+                <div className="mt-24">
                     <ConsoleTyping block={introductionLines} delay={4000}></ConsoleTyping>
                 </div>
                 <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-yellow-300">π</div>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navBar";
-import { ThemeProvider } from "@/libs/themeProvider";
 
 const jetbrains = JetBrains_Mono({
     subsets: ['latin'],
@@ -28,14 +27,14 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <meta name="color-scheme" content="light dark"></meta>
-            <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth`}>
-                <ThemeProvider>
+            <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth bg-black`}>
+                {/* <ThemeProvider> */}
                     <NavBar></NavBar>
                     <main className="grow">
                         {children}
                     </main>
                     {/* <FooterBar></FooterBar> */}
-                </ThemeProvider>
+                {/* </ThemeProvider> */}
             </body>
         </html>
     );

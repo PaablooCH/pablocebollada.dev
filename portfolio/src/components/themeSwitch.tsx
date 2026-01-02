@@ -1,17 +1,16 @@
 'use client'
-
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ThemeSwitch() {
-    const [isMounted, setMounted] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const {resolvedTheme, setTheme} = useTheme();
 
     useEffect(() => setMounted(true), []);
 
-    if (!isMounted) 
+    if (!mounted) 
     {
         return (
             <Image

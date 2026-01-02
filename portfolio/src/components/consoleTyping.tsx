@@ -106,7 +106,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
 
     return <>
         { block.slice(0, lineIndex).map((line, i) => {
-                return <p className="flex" key={i}>
+                return <p className="flex text-lg md:text-xl leading-relaxed code" key={i}>
                     { RenderLines(line, line.cmds.length, i) }
                     { i === (block.length - 1) && Cursor(true) }
                 </p>
@@ -114,7 +114,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
         }
 
         { block.slice(lineIndex, lineIndex + 1).map((line, i) => {
-                return <p className="flex" key={i}>
+                return <p className="flex text-lg md:text-xl leading-relaxed code" key={i}>
                     { RenderLines(line, cmdIndex, i) }
                     { RenderTyping(line, i) }
                 </p>
