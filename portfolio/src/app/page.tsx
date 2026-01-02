@@ -69,18 +69,19 @@ export default function Home() {
             <section id="hero" className="relative min-h-[calc(100dvh-60px)] px-10 pt-5">
                 <div className="font-extrabold text-9xl cursor-default text-gray-300">
                     <div className="flex flex-wrap items-center gap-2 opacity-0" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3s'}}>
-                        <h2 className="hover:text-yellow-300">FULL</h2>
+                        <h1 className="hover:text-yellow-300">FULL</h1>
                         <div className="border-b border-gray-300 w-16 lg:w-72 hover:border-yellow-300"></div>
-                        <h2 className="hover:text-yellow-300">STACK</h2>
+                        <h1 className="hover:text-yellow-300">STACK</h1>
                     </div>
-                    <h2 className="pl-10 hover:text-yellow-300 opacity-0" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h2>
+                    <h1 className="pl-10 hover:text-yellow-300 opacity-0" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h1>
                 </div>
                 <Image className="absolute top-40 right-40 transition-transform grayscale bg-gray-300 object-[56%_60%] object-none w-[170px] h-[210px] hover:grayscale-0"
                     style={{animation: "slideToRight 3s ease-in-out"}}
                     src={"/profile.png"}
                     width={300}
                     height={200}
-                    alt="Pablo Cebollada">
+                    alt="Pablo Cebollada"
+                    loading="eager">
                 </Image>
                 <div className="mt-24">
                     <ConsoleTyping block={introductionLines} delay={4000}></ConsoleTyping>

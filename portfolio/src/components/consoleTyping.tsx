@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState } from "react";
 
 type ConsoleTypingProps = {
@@ -42,7 +41,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
 
     useEffect(() => {
         const t = setTimeout(() => {
-          setDelayed(true);
+            setDelayed(true);
         }, delay)
       
         return () => clearTimeout(t);
@@ -78,9 +77,9 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
                 setCharIndex((currentCharIndex) => currentCharIndex + 1);
             }
         }, speed);
-
+        
         return () => clearTimeout(timeout);
-    }, [delayed, charIndex, printingLine, lineIndex, cmdIndex]);
+    }, [delayed, charIndex, printingLine, lineIndex, cmdIndex, speed]);
 
     function RenderLines(line: CommandLine, to: number, i: number) {
         return line.cmds.slice(0, to).map((cmd, j) => {
