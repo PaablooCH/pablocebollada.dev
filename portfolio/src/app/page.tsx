@@ -1,4 +1,5 @@
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
+import SeparatorLine from "@/components/separatorLine";
 import Image from "next/image";
 
 const introductionLines: CommandLine[] = [
@@ -89,7 +90,7 @@ export default function Home() {
                 <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-yellow-300">π</div>
             </section>
 
-            <div className="h-px bg-linear-to-r from-transparent via-neutral-800 to-transparent my-8" />
+            <SeparatorLine />
 
             {/* About Section */}
             <section id="about" className="min-h-[calc(100dvh-4rem-1px)] px-10 pt-4">
