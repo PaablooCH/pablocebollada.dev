@@ -42,6 +42,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
     useEffect(() => {
         const t = setTimeout(() => {
             setDelayed(true);
+            setShowCursor(true);
         }, delay)
       
         return () => clearTimeout(t);
@@ -51,7 +52,6 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
         if (!delayed) {
             return;
         }
-        setShowCursor(true);
         if (lineIndex >= block.length) 
         {
             return;
@@ -68,7 +68,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
             }
             else if (printingLine == cmd.text)
             {
-                setPrintingLine((currentPrintingLine) => currentPrintingLine = '');
+                setPrintingLine('');
                 setCmdIndex((i) => i + 1);
                 setCharIndex(0);
             }
@@ -79,7 +79,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
         }, speed);
         
         return () => clearTimeout(timeout);
-    }, [delayed, charIndex, printingLine, lineIndex, cmdIndex, speed]);
+    }, [delayed, charIndex, printingLine, lineIndex, cmdIndex, speed, block]);
 
     function RenderLines(line: CommandLine, to: number, i: number) {
         return line.cmds.slice(0, to).map((cmd, j) => {
@@ -103,7 +103,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
             </>
     }
 
-    return <>
+    return <div>
         { block.slice(0, lineIndex).map((line, i) => {
                 return <p className="flex text-lg md:text-xl leading-relaxed code" key={i}>
                     { RenderLines(line, line.cmds.length, i) }
@@ -119,5 +119,5 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
                 </p>
             })
         }
-    </>;
+    </div>;
 }
