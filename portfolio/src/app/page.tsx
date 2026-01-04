@@ -55,13 +55,7 @@ const introductionLines: CommandLine[] = [
             }
         ]
     }
-        // '$mark$%$end$ $blank$ πPablo --help$end$',
-    // '$title$    COMMANDS$end$',
-    // '$blank$        clean_code.$end$',
-    // '$blank$        solid_architecture.$end$',
-    // '$blank$        real_impact.$end$',
-    // '$mark$%$end$'
-]
+];
 
 export default function Home() {
     return (
