@@ -15,14 +15,13 @@ function GetMyTime(): string {
 
 export default function NavBar() {
     const [dropDown, setDropDown] = useState(false);
-    const [myTime, setMyTime] = useState('00:00');
+    const [myTime, setMyTime] = useState(GetMyTime());
     const [renderPanels, setRenderPanels] = useState(false);
 
     const router = useRouter();
-    const pathname = usePathname()
+    const pathname = usePathname();
 
     useEffect(() => {
-        setMyTime(GetMyTime());
         const interval = setInterval(() => {
             setMyTime(GetMyTime());
         }, 60000);
@@ -53,7 +52,7 @@ export default function NavBar() {
     return (
         <div className="relative">
             {renderPanels && <OutroPanels></OutroPanels>}
-            <div className={`fixed bg-red-500 transition-transform top-0 left-0 h-dvh w-screen px-10 py-4 duration-500 flex flex-col justify-between text-white z-10 ${dropDown ? 'bounce' : '-translate-y-full'}`}>
+            <div className={`bg-red-500 transition-transform top-0 left-0 h-dvh w-screen px-10 py-4 duration-500 flex flex-col justify-between text-white z-10 ${dropDown ? 'bounce fixed' : '-translate-y-full absolute'}`}>
                 <div className="font-extrabold text-xl text-end">
                     <span className="cursor-pointer hover:text-black" onClick={() => setDropDown(false)}>Close</span>
                 </div>
