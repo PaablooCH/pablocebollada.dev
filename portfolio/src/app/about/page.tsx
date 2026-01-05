@@ -71,8 +71,6 @@ export default function About() {
                     <Experience position="Full-Stack Developer" company="IThink UPC" period="Feb 22-Feb 23" description={["Developed responsive web applications using Angular and TypeScript.", "Collaborated closely with the design team to implement UI components.", "Developed backend services using Spring Boot and Java.", "Optimized application performance and overall user experience."]}></Experience>
                     <Experience position="Full-Stack Developer (Internship)" company="Telespazio Ibérica" period="Apr 21-Jan 22" description={["Worked as a full-stack developer building web applications for both first- and third-party clients.", "Developed responsive web applications using Angular and TypeScript.", "Developed backend services using Spring Boot and Java."]}></Experience>
                 </div>
-                
-                
             </div>
 
             <SeparatorLine />
