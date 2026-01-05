@@ -75,7 +75,9 @@ export default function Projects() {
     return (
         <div className="min-h-[calc(100dvh-60px)] px-10 pt-5">
             <h2 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">PROJECTS</h2>
-            <ConsoleTyping block={introductionLines} delay={2000}></ConsoleTyping>
+            <div className="mt-8">
+                <ConsoleTyping block={introductionLines} delay={2000}></ConsoleTyping>
+            </div>
         </div>
     );
 }

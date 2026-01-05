@@ -28,13 +28,10 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <meta name="color-scheme" content="light dark"></meta>
             <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth bg-black`}>
-                {/* <ThemeProvider> */}
-                    <NavBar></NavBar>
-                    <main className="grow">
-                        {children}
-                    </main>
-                    {/* <FooterBar></FooterBar> */}
-                {/* </ThemeProvider> */}
+                <NavBar></NavBar>
+                <main className="grow">
+                    {children}
+                </main>
             </body>
         </html>
     );

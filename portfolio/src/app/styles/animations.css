@@ -108,3 +108,29 @@
         opacity: 0;
     }
 }
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate_slide_in_left {
+    animation: slide-in-left 1s forwards;
+}
+
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate_slide_in_right {
+    animation: slide-in-right 1s forwards;
+}
