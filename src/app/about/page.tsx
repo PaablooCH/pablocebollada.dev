@@ -3,6 +3,23 @@ import Tool from "@/app/about/components/tool";
 import { ArrowTrendingUpIcon, BookOpenIcon, CogIcon, DocumentArrowDownIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import Experience from "./components/experience";
 import Education from "./components/education";
+import { Metadata } from "next";
+
+import { about as config } from "@/app/resources/config";
+
+export const metadata: Metadata = {
+    title: config.title,
+    description: config.description,
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.canonical}`,
+        type: 'website',
+    },
+    alternates: {
+        canonical: config.canonical
+    }
+};
 
 export default function About() {
     return (

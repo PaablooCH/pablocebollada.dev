@@ -1,4 +1,6 @@
+import { project as config } from "@/app/resources/config";
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
+import { Metadata } from "next";
 
 const introductionLines: CommandLine[] = [
     {
@@ -70,6 +72,21 @@ const introductionLines: CommandLine[] = [
         ]
     }
 ];
+
+
+export const metadata: Metadata = {
+    title: config.title,
+    description: config.description,
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.canonical}`,
+        type: 'website',
+    },
+    alternates: {
+        canonical: config.canonical
+    }
+};
 
 export default function Projects() {
     return (

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navBar";
+import { home as config } from "./resources/config";
+
 import { Analytics } from "@vercel/analytics/next"
 
 const jetbrains = JetBrains_Mono({
@@ -15,9 +17,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "πPablo",
-    description: "This is πPablo's personal Website",
-    authors: [{url: "https://github.com/PaablooCH", name: "Pablo Cebollada"}],
+    metadataBase: new URL(`https://${config.baseUrl}`),
+    title: config.title,
+    description: config.description,
+    authors: [config.author],
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.baseUrl}`,
+        siteName: config.title,
+        locale: 'en_US',
+        type: 'website',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        }
+    }
 };
 
 export default function RootLayout({
