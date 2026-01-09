@@ -5,6 +5,7 @@ import NavBar from "@/components/navBar";
 import { home as config } from "./resources/config";
 
 import { Analytics } from "@vercel/analytics/next"
+import { me } from "./resources/content";
 
 const jetbrains = JetBrains_Mono({
     subsets: ['latin'],
@@ -21,11 +22,18 @@ export const metadata: Metadata = {
     title: config.title,
     description: config.description,
     authors: [config.author],
+    creator: me.GetFullName(),
+    keywords: config.keywords,
     openGraph: {
         title: config.title,
         description: config.description,
         url: `https://${config.baseUrl}`,
         siteName: config.title,
+        images: [
+            {
+                url: "/og-image.png",
+            }
+        ],
         locale: 'en_US',
         type: 'website',
     },
@@ -38,7 +46,7 @@ export const metadata: Metadata = {
             "max-video-preview": -1,
             "max-image-preview": "large",
             "max-snippet": -1,
-        }
+        },
     }
 };
 
@@ -48,7 +56,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en">
             <meta name="color-scheme" content="light dark"></meta>
             <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth bg-black`}>
                 <NavBar></NavBar>

@@ -1,4 +1,4 @@
-import { project as config } from "@/app/resources/config";
+import { projects as config } from "@/app/resources/config";
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
 import { Metadata } from "next";
 

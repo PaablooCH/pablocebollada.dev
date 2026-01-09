@@ -56,7 +56,7 @@ export default function NavBar() {
                 <div className="font-extrabold text-xl text-end">
                     <span className="cursor-pointer hover:text-black" onClick={() => setDropDown(false)}>Close</span>
                 </div>
-                <div className="flex flex-col items-center justify-center gap-8 tracking-wide">
+                <nav className="flex flex-col items-center justify-center gap-8 tracking-wide">
                     <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => activateOutro("/")}>HOME</h2>
                     <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => activateOutro("/about")}>ABOUT ME</h2>
                     <h2 className="font-extrabold text-6xl hover:text-black cursor-pointer" onClick={() => activateOutro("/projects")}>PROJECTS</h2>
@@ -73,7 +73,7 @@ export default function NavBar() {
                             </svg>
                         </Link>
                     </div>
-                </div>
+                </nav>
                 <div className="h-1/4 flex flex-col">
                     <div className="flex-1"></div>
                     <div>

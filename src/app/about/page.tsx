@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <div className={`min-h-[calc(100dvh-60px)] px-10 pt-5`}>
-            <h2 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">ABOUT ME</h2>
-            <div className="mt-8">
-                <h3 className="font-bold text-3xl text-gray-300 hover:text-fuchsia-300">HI, I&apos;M PABLO 👋</h3>
+            <h1 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">ABOUT ME</h1>
+            <section id="me" className="mt-8">
+                <h2 className="font-bold text-3xl text-gray-300 hover:text-fuchsia-300">HI, I&apos;M PABLO 👋</h2>
                 <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl text-gray-300">
                     <p>
                         My name is Pablo Cebollada, and I&apos;m a full-stack developer currently working on web applications, with experience designing, building, and maintaining production-ready systems.
@@ -46,13 +46,13 @@ export default function About() {
                         </a>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <SeparatorLine />
 
-            <div>
+            <section id="tools">
                 <div className="flex items-center gap-2 text-gray-300 hover:text-emerald-500">
-                    <h3 className="font-bold text-3xl">TOOLS </h3>
+                    <h2 className="font-bold text-3xl">TOOLS </h2>
                     <CogIcon className="size-8"></CogIcon>
                 </div>
                 
@@ -73,13 +73,13 @@ export default function About() {
                     <Tool name="Docker" logoUrl="https://cdn.simpleicons.org/docker" logoAlt="Docker logo"></Tool>
                     <Tool name="C++" logoUrl="https://cdn.simpleicons.org/c++" logoAlt="C++ logo"></Tool>
                 </div>
-            </div>
+            </section>
 
             <SeparatorLine />
 
-            <div>
+            <section id="experience">
                 <div className="flex items-center gap-2 text-gray-300 hover:text-rose-500">
-                    <h3 className="font-bold text-3xl">EXPERIENCE </h3>
+                    <h2 className="font-bold text-3xl">EXPERIENCE </h2>
                     <ArrowTrendingUpIcon className="size-8"></ArrowTrendingUpIcon>
                 </div>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
@@ -88,20 +88,20 @@ export default function About() {
                     <Experience position="Full-Stack Developer" company="IThink UPC" period="Feb 22-Feb 23" description={["Developed responsive web applications using Angular and TypeScript.", "Collaborated closely with the design team to implement UI components.", "Developed backend services using Spring Boot and Java.", "Optimized application performance and overall user experience."]}></Experience>
                     <Experience position="Full-Stack Developer (Internship)" company="Telespazio Ibérica" period="Apr 21-Jan 22" description={["Worked as a full-stack developer building web applications for both first- and third-party clients.", "Developed responsive web applications using Angular and TypeScript.", "Developed backend services using Spring Boot and Java."]}></Experience>
                 </div>
-            </div>
+            </section>
 
             <SeparatorLine />
 
-            <div className="mb-10">
+            <section id="education" className="mb-10">
                 <div className="flex items-center gap-2 text-gray-300 hover:text-cyan-500">
-                    <h3 className="font-bold text-3xl">EDUCATION </h3>
+                    <h2 className="font-bold text-3xl">EDUCATION </h2>
                     <BookOpenIcon className="size-8"></BookOpenIcon>
                 </div>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Education course="Master in Advanced Programming" institution="UPC BarcelonaTech - Talent School" period="2022 - 2023"></Education>
                     <Education course="Bachelor’s Degree in Computer Science (Software Engineering)" institution="UPC BarcelonaTech" period="2017 - 2022"></Education>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

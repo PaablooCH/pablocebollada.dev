@@ -4,4 +4,7 @@ export const me = {
     role: "Full-Stack Developer",
     location: "Spain",
     nickname: "πPablo",
+    GetFullName(): string {
+        return this.name + " " + this.firstName
+    }
 }
