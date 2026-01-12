@@ -50,7 +50,7 @@ export default function NavBar() {
     }
 
     return (
-        <div className="relative">
+        <nav className="relative">
             {renderPanels && <OutroPanels></OutroPanels>}
             <div className={`bg-red-500 transition-transform top-0 left-0 h-dvh w-screen px-10 py-4 duration-500 flex flex-col justify-between text-white z-10 ${dropDown ? 'bounce fixed' : '-translate-y-full absolute'}`}>
                 <div className="font-extrabold text-xl text-end">
@@ -73,7 +73,7 @@ export default function NavBar() {
                             </svg>
                         </Link>
                     </div>
-                </nav>
+                </div>
                 <div className="h-1/4 flex flex-col">
                     <div className="flex-1"></div>
                     <div>
@@ -92,6 +92,6 @@ export default function NavBar() {
                 </div>
                 <span className="justify-self-end font-extrabold text-xl tracking-wide">BCN · { myTime }</span>
             </div>
-        </div>
+        </nav>
     );
 }
