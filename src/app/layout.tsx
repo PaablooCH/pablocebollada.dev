@@ -6,6 +6,7 @@ import { home as config } from "./resources/config";
 
 import { Analytics } from "@vercel/analytics/next"
 import { me } from "./resources/content";
+import { MyAnimatePresence } from "@/libs/animatePresence";
 
 const jetbrains = JetBrains_Mono({
     subsets: ['latin'],
@@ -58,12 +59,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <meta name="color-scheme" content="light dark"></meta>
+
             <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth bg-black`}>
-                <NavBar></NavBar>
-                <main className="grow">
-                    {children}
-                    <Analytics />
-                </main>
+                <NavBar />
+                <MyAnimatePresence>
+                    <main className="grow">
+                        {children}
+                        <Analytics />
+                    </main>
+                </MyAnimatePresence>                
             </body>
         </html>
     );
