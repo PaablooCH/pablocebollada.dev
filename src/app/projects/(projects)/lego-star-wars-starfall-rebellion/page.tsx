@@ -9,7 +9,7 @@ export default function LegoStarWarsStarfallRebellion() {
             <h1 className="font-bold text-5xl text-gray-300 mt-8 uppercase hover:text-yellow-300">Lego Star Wars: Starfall Rebellion</h1>
             <div className="text-justify text-gray-300 text-lg md:text-xl mt-4">
                 <p>Starfall Rebellion is a single-player hack-and-slash game insipired by Lego Star Wars, entirely made using our in-house engine, 
-                    <Link href="/projects/axolotl-engine"> <strong className="text-[var(--color-primary)] cursor-pointer underline">Axolotl Engine</strong></Link>.</p>
+                    <Link href="/projects/axolotl-engine"> <strong className="text-(--color-primary) cursor-pointer underline">Axolotl Engine</strong></Link>.</p>
 
                 <p className="mt-2">In it, you&apos;ll take control of Bix, a renegade rebel who possesses the Force, and Allura, an ex-convict with exceptional hacking abilities. Together, you&apos;ll embark on a journey across space 
                     in an attempt to reach the organization that is exerting control over their hometown and put an end to their tyranny. 
@@ -22,8 +22,8 @@ export default function LegoStarWarsStarfallRebellion() {
                     Learn more about the situation of your hometown 
                     and ultimately put an end to the tyranny that is affecting your world.</p>
 
-                <p className="mt-2">In this project, I developed the  <strong className="text-[var(--color-primary)]">power-up system</strong>, 
-                    an <strong className="text-[var(--color-primary)]">visual effect</strong> class (e.g., for when the player is being hit or a fade out when he dies), and assisted in <strong>bug resolution</strong>.</p>
+                <p className="mt-2">In this project, I developed the  <strong className="text-(--color-primary)">power-up system</strong>, 
+                    an <strong className="text-(--color-primary)">visual effect</strong> class (e.g., for when the player is being hit or a fade out when he dies), and assisted in <strong>bug resolution</strong>.</p>
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12 text-gray-300">
                 <Link href="https://starfall-rebellion.vercel.app" target="_blank">

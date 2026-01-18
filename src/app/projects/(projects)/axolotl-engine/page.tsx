@@ -8,7 +8,7 @@ export default function AxolotlEngine() {
             <Header image="/Horizons.png" alt="Axolotl Engine" width={250} height={250} layoutId={"image-axolotl-engine"} className="bg-white"></Header>
             <h1 className="font-bold text-5xl text-gray-300 mt-8 uppercase hover:text-yellow-300">Axolotl Engine</h1>
             <div className="text-justify text-gray-300 text-lg md:text-xl mt-4">
-                <p>The Axolotl Engine is an in-house game engine developed in <strong className="text-[var(--color-primary)]">C++</strong> that utilizes the <strong className="text-[var(--color-primary)]">OpenGL API</strong> for rendering. 
+                <p>The Axolotl Engine is an in-house game engine developed in <strong className="text-(--color-primary)">C++</strong> that utilizes the <strong className="text-(--color-primary)">OpenGL API</strong> for rendering. 
                     It is created by Horizons Games, an educational game development studio founded by master&apos;s students from UPC School 
                     in Barcelona, Spain. This powerful tool empowers our developers to craft games with 3D graphics, custom gameplay mechanics, 
                     and a diverse array of features to deliver unique experiences.</p>
@@ -17,11 +17,11 @@ export default function AxolotlEngine() {
                     which is a monumental objective in itself, but also because of the collaboration with a large team, divided into different departments 
                     with varying goals and needs, all of which required coordination.</p>
 
-                <p className="mt-2">My <strong className="text-[var(--color-primary)]">primary role</strong> in this project was in the <strong className="text-[var(--color-primary)]">graphics department</strong>, where I developed various 
-                    features including <strong className="text-[var(--color-primary)]">deferred shading</strong>, <strong className="text-[var(--color-primary)]">different types of lighting</strong>, <strong className="text-[var(--color-primary)]">reflections</strong>, <strong className="text-[var(--color-primary)]">bloom</strong>, 
-                    <strong className="text-[var(--color-primary)]">batching</strong>, <strong className="text-[var(--color-primary)]">tone mapping</strong>, <strong className="text-[var(--color-primary)]">VFX mesh effects</strong> and <strong className="text-[var(--color-primary)]">trails</strong>.
-                    Additionally, as a part of the team, I reviewed pull requests in the repository to ensure <strong className="text-[var(--color-primary)]">high quality</strong> and adherence to <strong className="text-[var(--color-primary)]">programming best practices</strong>
-                    and I also took on the responsibility of implementing some features in the engine and resolving <strong className="text-[var(--color-primary)]">bugs</strong> and <strong className="text-[var(--color-primary)]">memory leaks</strong>.</p>
+                <p className="mt-2">My <strong className="text-(--color-primary)">primary role</strong> in this project was in the <strong className="text-(--color-primary)">graphics department</strong>, where I developed various 
+                    features including <strong className="text-(--color-primary)">deferred shading</strong>, <strong className="text-(--color-primary)">different types of lighting</strong>, <strong className="text-(--color-primary)">reflections</strong>, <strong className="text-(--color-primary)">bloom</strong>, 
+                    <strong className="text-(--color-primary)">batching</strong>, <strong className="text-(--color-primary)">tone mapping</strong>, <strong className="text-(--color-primary)">VFX mesh effects</strong> and <strong className="text-(--color-primary)">trails</strong>.
+                    Additionally, as a part of the team, I reviewed pull requests in the repository to ensure <strong className="text-(--color-primary)">high quality</strong> and adherence to <strong className="text-(--color-primary)">programming best practices</strong>
+                    and I also took on the responsibility of implementing some features in the engine and resolving <strong className="text-(--color-primary)">bugs</strong> and <strong className="text-(--color-primary)">memory leaks</strong>.</p>
             </div>
             <video controls width="100%" height="auto" className="mt-4">
                 <source src="/workSamplersHorizons.mp4" type="video/mp4"></source>

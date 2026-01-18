@@ -15,7 +15,7 @@ export default function Header({ image, alt, width, height, layoutId, className 
     const blur = useTransform(scrollYProgress, [0, 0.5], ['blur(0px)', 'blur(10px)'], {
         clamp: true,
     });
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.5], {
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.75], {
         clamp: true,
     });
 
