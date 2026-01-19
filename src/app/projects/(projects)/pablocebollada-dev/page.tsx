@@ -1,5 +1,22 @@
 import Link from "next/link";
 import Header from "../components/header";
+import { Metadata } from "next";
+import { pabloCebolladaDev as config } from "@/app/resources/config";
+
+export const metadata: Metadata = {
+    title: config.title,
+    description: config.description,
+    keywords: config.keywords,
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.canonical}`,
+        type: 'website',
+    },
+    alternates: {
+        canonical: config.canonical
+    }
+};
 
 export default function PabloCebolladaDev() {
     return (

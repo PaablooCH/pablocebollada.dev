@@ -1,6 +1,22 @@
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
 import SeparatorLine from "@/components/separatorLine";
 import Image from "next/image";
+import { Metadata } from "next";
+import { home as config } from "./resources/config";
+
+export const metadata: Metadata = {
+    title: config.title,
+    description: config.description,
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.baseUrl}`,
+        type: 'website',
+    },
+    alternates: {
+        canonical: `https://${config.baseUrl}`
+    }
+};
 
 const introductionLines: CommandLine[] = [
     {

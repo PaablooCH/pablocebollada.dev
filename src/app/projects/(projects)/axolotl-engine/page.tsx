@@ -1,6 +1,23 @@
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import Header from "../components/header";
 import Link from "next/link";
+import { Metadata } from "next";
+import { axolotlEngine as config } from "@/app/resources/config";
+
+export const metadata: Metadata = {
+    title: config.title,
+    description: config.description,
+    keywords: config.keywords,
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.canonical}`,
+        type: 'website',
+    },
+    alternates: {
+        canonical: config.canonical
+    }
+};
 
 export default function AxolotlEngine() {
     return (
