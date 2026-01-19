@@ -3,5 +3,9 @@ export const me = {
     firstName: "Cebollada Hernández",    
     role: "Full-Stack Developer",
     location: "Spain",
+    pageName: "Pablo Cebollada",
     nickname: "πPablo",
+    GetFullName(): string {
+        return this.name + " " + this.firstName;
+    }
 }

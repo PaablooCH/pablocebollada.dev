@@ -1,6 +1,22 @@
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
 import SeparatorLine from "@/components/separatorLine";
 import Image from "next/image";
+import { Metadata } from "next";
+import { home as config } from "./resources/config";
+
+export const metadata: Metadata = {
+    title: config.title,
+    description: config.description,
+    openGraph: {
+        title: config.title,
+        description: config.description,
+        url: `https://${config.baseUrl}`,
+        type: 'website',
+    },
+    alternates: {
+        canonical: `https://${config.baseUrl}`
+    }
+};
 
 const introductionLines: CommandLine[] = [
     {
@@ -62,13 +78,13 @@ export default function Home() {
         <div>
             {/* Hero Section */}
             <section id="hero" className="relative min-h-[calc(100dvh-60px)] px-10 pt-5">
-                <div className="font-extrabold text-5xl sm:text-7xl md:text-9xl cursor-default text-gray-300">
+                <div className="font-extrabold text-5xl sm:text-7xl md:text-9xl cursor-default">
                     <div className="flex flex-wrap items-center gap-2 opacity-0" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3s'}}>
-                        <h1 className="hover:text-yellow-300">FULL</h1>
-                        <div className="border-b border-gray-300 w-4 sm:w-32 md:w-72 hover:border-yellow-300"></div>
-                        <h1 className="hover:text-yellow-300">STACK</h1>
+                        <h1 className="glow">FULL</h1>
+                        <div className="border-b border-(--color-primary) w-4 sm-32 md:w-72 hover:border-yellow-300"></div>
+                        <h1 className="glow">STACK</h1>
                     </div>
-                    <h1 className="pl-10 hover:text-yellow-300 opacity-0" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h1>
+                    <h1 className="pl-10 opacity-0 glow" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h1>
                 </div>
                 <Image className="absolute top-32 right-10 sm:top-25 sm:right-20 md:top-40 md:right-40 transition-transform grayscale bg-gray-300 object-none object-[56%_60%] w-[85px] h-[105px] sm:w-[115px] sm:h-[140px] md:w-42 md:h-[200px] hover:grayscale-0"
                     style={{animation: "slideToRight 3s ease-in-out"}}
@@ -89,8 +105,8 @@ export default function Home() {
 
             {/* About Section */}
             <section id="about" className="min-h-[calc(100dvh-4rem-1px)] px-10 pt-4">
-                <h2 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">A BIT ABOUT ME</h2>
-                <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl md:w-2/3">
+                <h2 className="title-h2">A BIT ABOUT ME</h2>
+                <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl md:w-2/3 text">
                     <p>
                         Full-stack developer with professional experience building web applications and a strong background in system-level programming.
                     </p>

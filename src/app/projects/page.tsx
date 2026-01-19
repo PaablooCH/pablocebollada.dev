@@ -1,78 +1,6 @@
-import { project as config } from "@/app/resources/config";
-import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
+import { projects as config } from "@/app/resources/config";
 import { Metadata } from "next";
-
-const introductionLines: CommandLine[] = [
-    {
-        cmds: [
-            {
-                color: 'mark',
-                text: 'W' 
-            },
-            {
-                color: 'title',
-                text: 'O' 
-            },
-            {
-                color: 'entry',
-                text: 'R' 
-            },
-            {
-                color: 'blank',
-                text: 'K' 
-            },
-            {
-                color: 'mark',
-                text: 'I' 
-            },
-            {
-                color: 'title',
-                text: 'N' 
-            },
-            {
-                color: 'entry',
-                text: 'G' 
-            },
-            {
-                color: 'blank',
-                text: ' O' 
-            },
-            {
-                color: 'mark',
-                text: 'N' 
-            },
-            {
-                color: 'title',
-                text: ' I' 
-            },
-            {
-                color: 'entry',
-                text: 'T' 
-            },
-            {
-                color: 'blank',
-                text: '.' 
-            },
-            {
-                color: 'mark',
-                text: '.' 
-            },
-            {
-                color: 'title',
-                text: '.' 
-            },
-            {
-                color: 'entry',
-                text: '.' 
-            },
-            {
-                color: 'blank',
-                text: '.' 
-            },
-        ]
-    }
-];
-
+import ProjectCard from "./components/projectCard";
 
 export const metadata: Metadata = {
     title: config.title,
@@ -91,9 +19,13 @@ export const metadata: Metadata = {
 export default function Projects() {
     return (
         <div className="min-h-[calc(100dvh-60px)] px-10 pt-5">
-            <h2 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">PROJECTS</h2>
-            <div className="mt-8">
-                <ConsoleTyping block={introductionLines} delay={2000}></ConsoleTyping>
+            <h1 className="title-h1">PROJECTS</h1>
+            <div className="projects-grid mt-12 pb-12">
+                <ProjectCard title="pablocebollada.dev" description="Recreation of my personal website using React, Next.js, TypeScript and Tailwind CSS." image="/og-image.png" imageClassName="bg-white rounded-full p-1" link="pablocebollada-dev" tags={["Next.js", "Tailwind CSS", "Framer Motion", "Custom UI Components"]}></ProjectCard>
+                <ProjectCard title="Axolotl Engine" description="In-house game Engine developed in C++ and OpenGL, for the Master in Advanced Programming for AAA Videogames’ final project." image="/Horizons.png" link="axolotl-engine" tags={["C++", "OpenGL", "Nvidia Nsight", "RenderDoc"]}></ProjectCard>
+                <ProjectCard title="Lego Star Wars: Starfall Rebellion" description="Game developed in C++ using Axolotl Engine based on Lego Star Wars, with an original history. Developed during my Master in Advanced Programming for AAA Videogames." image="/starfall-rebellion.png" link="lego-star-wars-starfall-rebellion" tags={["Axolotl Engine", "C++"]}></ProjectCard>
+                <ProjectCard title="Deep Shop" description="Personal Development Project to expand my C# knowledge and implementing different modular systems using Unity as Engine." image="/deep-shop-icon.png" link="deep-shop" tags={["Unity", "Quest system", "Dialogue system", "UI system", "Coroutines"]}></ProjectCard>
+                <ProjectCard title="Megaman" description="2D Game developed in C++, with a in-house Engine, based on The Goonies (NES) with a Megaman 7 aesthetic." image="/Megaman.png" link="megaman" tags={["C++", "OpenGL", "Tiled"]}></ProjectCard>
             </div>
         </div>
     );
