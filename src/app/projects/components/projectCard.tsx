@@ -15,7 +15,14 @@ type Props = {
 export default function ProjectCard({ title, description, image, imageClassName, link, tags }: Props) {
     return (
         <Link href={"/projects/" + link} scroll={true}>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration: 1} }} viewport={{ once: true }} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95, y: 1}} transition={{ type: "spring", ease: "easeOut" }} className="text-gray-300 p-4 cursor-pointer project-card">
+            <motion.div 
+                initial={{ opacity: 0 }} 
+                whileInView={{ opacity: 1, transition: { duration: 0.8 } }} 
+                viewport={{ once: true, amount: 0.2 }} 
+                whileHover={{ scale: 1.05, y: -2, transition: { type: "spring", stiffness: 300, damping: 10 } }} 
+                whileTap={{ scale: 0.95, y: 1, transition: { type: "spring", stiffness: 300, damping: 10 } }} 
+                className="p-4 cursor-pointer project-card"
+            >
                 <div className="grid place-items-center">
                     <div className={`${imageClassName} project-card-image`}>
                         <motion.img

@@ -14,8 +14,8 @@ export default function GoBack({ url }: GoBackProps) {
     }
 
     return (
-        <button onClick={handleClick} aria-label="goBack" className="cursor-pointer">
-            <ArrowLeftIcon className="size-6 stroke-2 text-white"/>
+        <button onClick={handleClick} aria-label="goBack" className="cursor-pointer my-2">
+            <ArrowLeftIcon className="size-6 stroke-2 text"/>
         </button>
     )
 }

@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <div className={`min-h-[calc(100dvh-60px)] px-10 pt-5`}>
-            <h1 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">ABOUT ME</h1>
+            <h1 className="title-h1">ABOUT ME</h1>
             <section id="me" className="mt-8">
-                <h2 className="font-bold text-3xl text-gray-300 hover:text-fuchsia-300">HI, I&apos;M PABLO 👋</h2>
-                <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl text-gray-300">
+                <h2 className="title-h2 hover:text-(--color-secondary)">HI, I&apos;M PABLO 👋</h2>
+                <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl text">
                     <p>
                         My name is Pablo Cebollada, and I&apos;m a full-stack developer currently working on web applications, with experience designing, building, and maintaining production-ready systems.
                     </p>
@@ -39,10 +39,10 @@ export default function About() {
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
                         <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer">
-                            <DocumentArrowDownIcon className="size-8 hover:cursor-pointer hover:text-fuchsia-300" />
+                            <DocumentArrowDownIcon className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
                         <a href="mailto:paabloo.ch@gmail.com" target="_blank">
-                            <EnvelopeIcon className="size-8 hover:cursor-pointer hover:text-fuchsia-300" />
+                            <EnvelopeIcon className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
                     </div>
                 </div>
@@ -51,15 +51,15 @@ export default function About() {
             <SeparatorLine />
 
             <section id="tools">
-                <div className="flex items-center gap-2 text-gray-300 hover:text-emerald-500">
-                    <h2 className="font-bold text-3xl">TOOLS </h2>
-                    <CogIcon className="size-8"></CogIcon>
+                <div className="flex items-center gap-2 title-h2 hover:text-(--color-accent)">
+                    <h2>TOOLS </h2>
+                    <CogIcon className="size-10"></CogIcon>
                 </div>
                 
-                <p className="flex flex-col gap-4 mt-4 text-lg md:text-xl text-gray-300">
+                <p className="flex flex-col gap-4 mt-4 text-lg md:text-xl text">
                     My primary stack includes Nuxt, Tailwind, and TypeScript on the front end but I&apos;m learning React, and Spring with Java on the back end but I&apos;m learning Kotlin. Below, I’ve listed some of the languages and tools I’ve used—and continue to use—throughout my career.
                 </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4 text-gray-300 gap-y-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4 text gap-y-8">
                     <Tool name="React" logoUrl="https://cdn.simpleicons.org/react" logoAlt="React logo" pulse={true} dotColor="bg-sky-500" pulseColor="bg-sky-400"></Tool>
                     <Tool name="Kotlin" logoUrl="https://cdn.simpleicons.org/kotlin" logoAlt="Kotlin logo" pulse={true} dotColor="bg-purple-500" pulseColor="bg-purple-400"></Tool>
                     <Tool name="AWS" logoUrl="/aws-color.svg" logoAlt="AWS logo"></Tool>
@@ -78,9 +78,9 @@ export default function About() {
             <SeparatorLine />
 
             <section id="experience">
-                <div className="flex items-center gap-2 text-gray-300 hover:text-rose-500">
-                    <h2 className="font-bold text-3xl">EXPERIENCE </h2>
-                    <ArrowTrendingUpIcon className="size-8"></ArrowTrendingUpIcon>
+                <div className="flex items-center gap-2 title-h2 hover:text-rose-500">
+                    <h2>EXPERIENCE </h2>
+                    <ArrowTrendingUpIcon className="size-10"></ArrowTrendingUpIcon>
                 </div>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Experience position="Full-Stack Developer" company="Desico" period="Apr 25-Present" description={["Developed web and cloud applications for first-party platforms.", "Built and maintained front-end services using Nuxt and Tailwind.", "Deployed and managed applications on AWS."]}></Experience>
@@ -93,9 +93,9 @@ export default function About() {
             <SeparatorLine />
 
             <section id="education" className="mb-10">
-                <div className="flex items-center gap-2 text-gray-300 hover:text-cyan-500">
-                    <h2 className="font-bold text-3xl">EDUCATION </h2>
-                    <BookOpenIcon className="size-8"></BookOpenIcon>
+                <div className="flex items-center gap-2 title-h2">
+                    <h2>EDUCATION </h2>
+                    <BookOpenIcon className="size-10"></BookOpenIcon>
                 </div>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Education course="Master in Advanced Programming" institution="UPC BarcelonaTech - Talent School" period="2022 - 2023"></Education>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function Projects() {
     return (
         <div className="min-h-[calc(100dvh-60px)] px-10 pt-5">
-            <h1 className="font-bold text-5xl text-gray-300 hover:text-yellow-300">PROJECTS</h1>
+            <h1 className="title-h1">PROJECTS</h1>
             <div className="projects-grid mt-12 pb-12">
                 <ProjectCard title="pablocebollada.dev" description="Recreation of my personal website using React, Next.js, TypeScript and Tailwind CSS." image="/og-image.png" imageClassName="bg-white rounded-full p-1" link="pablocebollada-dev" tags={["Next.js", "Tailwind CSS", "Framer Motion", "Custom UI Components"]}></ProjectCard>
                 <ProjectCard title="Axolotl Engine" description="In-house game Engine developed in C++ and OpenGL, for the Master in Advanced Programming for AAA Videogames’ final project." image="/Horizons.png" link="axolotl-engine" tags={["C++", "OpenGL", "Nvidia Nsight", "RenderDoc"]}></ProjectCard>

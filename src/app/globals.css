@@ -16,16 +16,236 @@
     --color-text-secondary: #9ca3af;
     --color-muted: #6b7280;
 
-    /* Gradient */
+    /* Gradient - Dark theme with subtle accent hints */
     --color-gradient-start: #020617;
-    --color-gradient-end: #0f172a;
+    --color-gradient-end: #1a0a2e;
+    --color-gradient-accent: #0f4c75;
 
     --card-bg: rgba(15, 23, 42, 0.6);
-    --card-border: rgba(255, 255, 255, 0.4);
-    --nav-bg: rgba(2, 6, 23, 0.8);
+    --card-border: rgba(56, 189, 248, 0.2);
+    --nav-bg: linear-gradient(180deg, rgba(2, 6, 23, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 @layer components {
+
+    .background {
+        background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-accent) 50%, var(--color-gradient-end) 100%);
+        background-attachment: fixed;
+    }
+
+    /* Typography */
+    .text {
+        color: var(--color-text);
+    }
+
+    .text-secondary {
+        color: var(--color-text-secondary);
+    }
+
+    .text-muted {
+        color: var(--color-muted);
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .text-secondary-color {
+        color: var(--color-secondary);
+    }
+
+    .text-accent {
+        color: var(--color-accent);
+    }
+
+    /* Titles */
+    .title-h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        transition: color 0.3s ease;
+    }
+
+    .title-h1:hover {
+        color: var(--color-primary);
+    }
+
+    .title-h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+    }
+
+    .title-h2:hover {
+        color: var(--color-primary);
+    }
+
+    .title-h3 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: 0em;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+    }
+
+    .title-h3:hover {
+        color: var(--color-primary);
+    }
+
+    .title-h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-text);
+        letter-spacing: 0.01em;
+        line-height: 1.4;
+    }
+
+    /* Body text variants */
+    .body-lg {
+        font-size: 1.125rem;
+        line-height: 1.75;
+        color: var(--color-text);
+    }
+
+    .body-base {
+        font-size: 1rem;
+        line-height: 1.625;
+        color: var(--color-text);
+    }
+
+    .body-sm {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: var(--color-text-secondary);
+    }
+
+    .body-xs {
+        font-size: 0.75rem;
+        line-height: 1.25;
+        color: var(--color-text-secondary);
+    }
+
+    /* Label and badge text */
+    .label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-primary);
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-primary);
+    }
+
+    /* Highlight and emphasis */
+    .highlight {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    .highlight-secondary {
+        color: var(--color-secondary);
+        font-weight: 600;
+    }
+
+    .highlight-accent {
+        color: var(--color-accent);
+        font-weight: 600;
+    }
+
+    .glow {
+        color: var(--color-primary);
+        text-shadow:
+            0 0 8px rgba(56, 189, 248, 0.6),
+            0 0 16px rgba(56, 189, 248, 0.4),
+            0 0 32px rgba(14, 165, 233, 0.3),
+            0 0 64px rgba(14, 165, 233, 0.1);
+
+        transition:
+            color 0.3s ease,
+            text-shadow 0.3s ease;
+    }
+
+    .glow:hover {
+        color: var(--color-accent);
+        text-shadow:
+            0 0 5px rgba(250, 204, 21, 0.8),
+            0 0 10px rgba(250, 204, 21, 0.6),
+            0 0 20px rgba(250, 204, 21, 0.4),
+            0 0 40px rgba(250, 204, 21, 0.2);
+    }
+
+    /* Navigation */
+    .navbar {
+        background: var(--nav-bg);
+        border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .navbar:hover {
+        border-bottom-color: rgba(56, 189, 248, 0.5);
+        box-shadow: 0 4px 16px rgba(56, 189, 248, 0.1);
+    }
+
+    .navbar-link {
+        color: var(--color-text);
+        transition: all 0.3s ease;
+        /* position: relative; */
+    }
+
+    .navbar-link:hover {
+        color: var(--color-primary);
+        text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+
+    .navbar-brand {
+        color: var(--color-text);
+        font-weight: 900;
+        font-size: 1.25rem;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+        color: var(--color-primary);
+    }
+
+    .navbar-toggle {
+        color: var(--color-text);
+        border-color: var(--color-text);
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggle:hover {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .navbar-time {
+        color: var(--color-text-secondary);
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+    }
+
+    /* PROJECTS */
 
     .projects-grid {
         display: grid;
@@ -41,8 +261,8 @@
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid var(--card-border);
         border-radius: 1rem;
-        box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
-        transition: all 0.3 ease;
+        box-shadow: 0px 4px 20px rgba(56, 189, 248, 0.1);
+        transition: all 0.3s ease;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -52,6 +272,7 @@
 
     .project-card:hover {
         border: 1px solid var(--color-primary);
+        box-shadow: 0px 4px 30px rgba(56, 189, 248, 0.2);
     }
 
     .project-card::before {
@@ -61,7 +282,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(56, 189, 248, 0.5), rgba(168, 85, 247, 0.5));
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(168, 85, 247, 0.2));
 
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -69,7 +290,7 @@
     }
 
     .project-card:hover::before {
-        opacity: 0.1;
+        opacity: 0.15;
     }
 
     .project-card-image {
@@ -84,7 +305,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        background: linear-gradient(45deg, transparent 0%, rgba(56, 189, 248, 0.15) 50%, transparent 100%);
 
         transform: translateX(-100%);
         transition: transform 0.6s ease;
@@ -117,13 +338,19 @@
     .project-tech-tags span {
         padding: 0.25rem 0.5rem;
 
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(56, 189, 248, 0.05);
         
         border: 1px solid var(--color-primary-dark);
         border-radius: 0.8rem;
         
         color: var(--color-primary);
         font-size: 0.8rem;
+        transition: all 0.3s ease;
+    }
+
+    .project-tech-tags span:hover {
+        background: rgba(56, 189, 248, 0.15);
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
     }
 }
 

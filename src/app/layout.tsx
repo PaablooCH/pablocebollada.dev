@@ -61,7 +61,7 @@ export default function RootLayout({
         <html lang="en">
             <meta name="color-scheme" content="light dark"></meta>
 
-            <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth bg-black`}>
+            <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth background min-h-dvh`}>
                 <NavBar />
                 <MyAnimatePresence>
                     <main className="grow">
