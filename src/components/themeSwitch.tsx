@@ -1,18 +1,19 @@
 'use client'
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 
 export default function ThemeSwitch() {
     const {resolvedTheme, setTheme} = useTheme();
 
     if (resolvedTheme === 'dark')
     {
-        return <SunIcon className="size-6 hover:cursor-pointer" onClick={() => setTheme('light')}></SunIcon>
+        return <IoSunnyOutline className="size-6 hover:cursor-pointer" onClick={() => setTheme('light')}></IoSunnyOutline>
     }
     else if (resolvedTheme === 'light')
     {
-        return <MoonIcon className="size-6 hover:cursor-pointer" onClick={() => setTheme('dark')}></MoonIcon>
+        return <IoMoonOutline className="size-6 hover:cursor-pointer" onClick={() => setTheme('dark')}></IoMoonOutline>
     }
 
     return (
