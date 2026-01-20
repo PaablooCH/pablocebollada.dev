@@ -1,6 +1,6 @@
 'use client';
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
+import { FaChevronLeft } from "react-icons/fa6";
 
 type GoBackProps = {
     url: string;
@@ -15,7 +15,7 @@ export default function GoBack({ url }: GoBackProps) {
 
     return (
         <button onClick={handleClick} aria-label="goBack" className="cursor-pointer my-2">
-            <ArrowLeftIcon className="size-6 stroke-2 text"/>
+            <FaChevronLeft className="size-6 stroke-2 text my-2 navbar-link"/>
         </button>
     )
 }

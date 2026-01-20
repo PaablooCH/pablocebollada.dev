@@ -1,6 +1,8 @@
 import SeparatorLine from "@/components/separatorLine";
 import Tool from "@/app/about/components/tool";
-import { ArrowTrendingUpIcon, BookOpenIcon, CogIcon, DocumentArrowDownIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { TbFileCv } from "react-icons/tb";
+import { IoIosMail, IoIosCog } from "react-icons/io";
+import { FaArrowTrendUp, FaBook } from "react-icons/fa6";
 import Experience from "./components/experience";
 import Education from "./components/education";
 import { Metadata } from "next";
@@ -39,10 +41,10 @@ export default function About() {
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
                         <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer">
-                            <DocumentArrowDownIcon className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
+                            <TbFileCv className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
                         <a href="mailto:paabloo.ch@gmail.com" target="_blank">
-                            <EnvelopeIcon className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
+                            <IoIosMail className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
                     </div>
                 </div>
@@ -53,7 +55,7 @@ export default function About() {
             <section id="tools">
                 <div className="flex items-center gap-2 title-h2 hover:text-(--color-accent)">
                     <h2>TOOLS </h2>
-                    <CogIcon className="size-10"></CogIcon>
+                    <IoIosCog className="size-10"></IoIosCog>
                 </div>
                 
                 <p className="flex flex-col gap-4 mt-4 text-lg md:text-xl text">
@@ -80,7 +82,7 @@ export default function About() {
             <section id="experience">
                 <div className="flex items-center gap-2 title-h2 hover:text-rose-500">
                     <h2>EXPERIENCE </h2>
-                    <ArrowTrendingUpIcon className="size-10"></ArrowTrendingUpIcon>
+                    <FaArrowTrendUp className="size-10"></FaArrowTrendUp>
                 </div>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Experience position="Full-Stack Developer" company="Desico" period="Apr 25-Present" description={["Developed web and cloud applications for first-party platforms.", "Built and maintained front-end services using Nuxt and Tailwind.", "Deployed and managed applications on AWS."]}></Experience>
@@ -95,7 +97,7 @@ export default function About() {
             <section id="education" className="mb-10">
                 <div className="flex items-center gap-2 title-h2">
                     <h2>EDUCATION </h2>
-                    <BookOpenIcon className="size-10"></BookOpenIcon>
+                    <FaBook className="size-8"></FaBook>
                 </div>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Education course="Master in Advanced Programming" institution="UPC BarcelonaTech - Talent School" period="2022 - 2023"></Education>
