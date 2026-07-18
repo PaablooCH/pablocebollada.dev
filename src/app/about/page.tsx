@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 
 export default function About() {
     return (
-        <div className={`min-h-[calc(100dvh-60px)] px-10 pt-5`}>
+        <div className={`min-h-[calc(100dvh-60px)] px-5 pt-5 sm:px-10`}>
             <h1 className="title-h1">ABOUT ME</h1>
             <section id="me" className="mt-8">
-                <h2 className="title-h2 hover:text-(--color-secondary)">HI, I&apos;M PABLO 👋</h2>
+                <h2 className="title-h2 hover:text-(--color-accent)">HI, I&apos;M PABLO 👋</h2>
                 <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl text">
                     <p>
                         My name is Pablo Cebollada, and I&apos;m a full-stack developer currently working on web applications, with experience designing, building, and maintaining production-ready systems.
@@ -40,10 +40,10 @@ export default function About() {
                         I enjoy building well-structured applications, understanding how every layer fits together, and delivering solutions that are both robust and easy to evolve over time.
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
-                        <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer">
+                        <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Pablo Cebollada's CV">
                             <TbFileCv className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
-                        <a href="mailto:paabloo.ch@gmail.com" target="_blank">
+                        <a href="mailto:paabloo.ch@gmail.com" target="_blank" aria-label="Email Pablo Cebollada">
                             <IoIosMail className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
                     </div>
@@ -53,7 +53,7 @@ export default function About() {
             <SeparatorLine />
 
             <section id="tools">
-                <div className="flex items-center gap-2 title-h2 hover:text-(--color-accent)">
+                <div className="flex items-center gap-2 title-h2 hover:text-emerald-300">
                     <h2>TOOLS </h2>
                     <IoIosCog className="size-10"></IoIosCog>
                 </div>
@@ -80,10 +80,11 @@ export default function About() {
             <SeparatorLine />
 
             <section id="experience">
-                <div className="flex items-center gap-2 title-h2 hover:text-rose-500">
+                <div className="flex items-center gap-2 title-h2 hover:text-(--color-secondary)">
                     <h2>EXPERIENCE </h2>
                     <FaArrowTrendUp className="size-10"></FaArrowTrendUp>
                 </div>
+                <p className="mt-2 text-sm font-semibold tracking-wide text-secondary md:hidden">SWIPE TO EXPLORE →</p>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Experience position="Full-Stack Developer" company="Desico" period="Apr 25-Present" description={["Developed web and cloud applications for first-party platforms.", "Built and maintained front-end services using Nuxt and Tailwind.", "Deployed and managed applications on AWS."]}></Experience>
                     <Experience position="Full-Stack Developer" company="Horizons Games" period="March 23-Nov 24" description={["Developed a corporate web application using React and Tailwind.", "Implemented features in C++ across different system components.", "Developed rendering features using multiple shaders for diverse rendering purposes.", "Performed profiling and debugging using a variety of performance analysis tools."]}></Experience>
@@ -95,10 +96,11 @@ export default function About() {
             <SeparatorLine />
 
             <section id="education" className="mb-10">
-                <div className="flex items-center gap-2 title-h2">
+                <div className="flex items-center gap-2 title-h2 hover:text-sky-300">
                     <h2>EDUCATION </h2>
                     <FaBook className="size-8"></FaBook>
                 </div>
+                <p className="mt-2 text-sm font-semibold tracking-wide text-secondary md:hidden">SWIPE TO EXPLORE →</p>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
                     <Education course="Master in Advanced Programming" institution="UPC BarcelonaTech - Talent School" period="2022 - 2023"></Education>
                     <Education course="Bachelor’s Degree in Computer Science (Software Engineering)" institution="UPC BarcelonaTech" period="2017 - 2022"></Education>

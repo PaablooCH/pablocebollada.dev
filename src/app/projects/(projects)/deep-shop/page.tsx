@@ -24,7 +24,7 @@ export default function DeepShop() {
         <div className="min-h-dvh">
             <Header image="/deep-shop-icon.png" alt="Deep Shop" width={250} height={250} layoutId={"image-deep-shop"}></Header>
             <h1 className="title-h1 mt-8">Deep Shop</h1>
-            <div className="text-justify text text-lg md:text-xl mt-4">
+            <div className="text text-lg md:text-xl mt-4">
                 <p>Deep Shop is a <strong className="text-(--color-primary)">personal development project</strong> created entirely in <strong className="text-(--color-primary)">C#</strong> and built using <strong className="text-(--color-primary)">Unity</strong> as the <strong className="text-(--color-primary)">game engine</strong>. 
                     Throughout this project, I focus on developing <strong className="text-(--color-primary)">new systems</strong> and <strong className="text-(--color-primary)">features</strong> while strengthening my <strong className="text-(--color-primary)">C#</strong> and <strong className="text-(--color-primary)">programming skills</strong>.</p>
 
@@ -41,10 +41,10 @@ export default function DeepShop() {
 
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
-                <Link href="https://youtu.be/kp8jPeeym2U" target="_blank">
+                <Link href="https://youtu.be/kp8jPeeym2U" target="_blank" rel="noreferrer" aria-label="Watch the Deep Shop video on YouTube">
                     <FaYoutube className="size-8 navbar-link"/>
                 </Link>
-                <Link href="https://github.com/PaablooCH/Deep-Shop/releases/latest" target="_blank">
+                <Link href="https://github.com/PaablooCH/Deep-Shop/releases/latest" target="_blank" rel="noreferrer" aria-label="View Deep Shop releases on GitHub">
                     <FaGithubAlt className="size-8 navbar-link"/>
                 </Link>
             </div>

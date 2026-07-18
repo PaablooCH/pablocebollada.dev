@@ -7,7 +7,7 @@ type ExperienceProps = {
 
 export default function Experience({ position, company, period, description }: ExperienceProps) {
     return (
-        <div className="bg-red-500 rounded-2xl flex flex-col p-4 h-fit min-w-68 max-w-fit snap-center hover:scale-105 transition-transform duration-300">
+        <div className="bg-purple-950/55 border border-purple-400/30 rounded-2xl flex flex-col p-4 h-fit min-w-68 max-w-fit snap-center hover:scale-105 transition-transform duration-300">
             <span className="text-white font-bold">{position}</span>
             <div className="flex justify-between text-white font-semibold">
                 <span>@ {company}</span>

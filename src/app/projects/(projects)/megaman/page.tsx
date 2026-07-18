@@ -24,8 +24,8 @@ export default function Megaman() {
         <div className="min-h-dvh">
             <Header image="/Megaman.png" alt="Megaman" width={250} height={250} layoutId={"image-megaman"}></Header>
             <h1 className="title-h1 mt-8">Megaman</h1>
-            <div className="text-justify text text-lg md:text-xl mt-4">
-                <p>Megaman is a single-player 2D platform game insipired by <Link href="https://www.youtube.com/watch?v=ENNRbKO_Up4"> <strong className="text-(--color-primary) cursor-pointer underline">The Goonies (1986)</strong></Link> for the NES but with the aesthetic of Megaman 7, entirely made using an in-house engine. 
+            <div className="text text-lg md:text-xl mt-4">
+                <p>Megaman is a single-player 2D platform game inspired by <Link href="https://www.youtube.com/watch?v=ENNRbKO_Up4"> <strong className="text-(--color-primary) cursor-pointer underline">The Goonies (1986)</strong></Link> for the NES but with the aesthetic of Megaman 7, entirely made using an in-house engine. 
                     This project is developed in <strong className="text-(--color-primary)">C++</strong> and utilizes the <strong className="text-(--color-primary)">OpenGL API</strong> for rendering 2D sprites. </p>
                                     
                 <p className="mt-2">Megaman was created by a team of two people. We both determined all aspects of the game. For instance, as I mentioned, we opted to alter the game&apos;s aesthetics to give it a distinct perspective compared to the original.
@@ -43,7 +43,7 @@ export default function Megaman() {
 
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
-                <Link href="https://github.com/PaablooCH/Megaman/releases/latest" target="_blank">
+                <Link href="https://github.com/PaablooCH/Megaman/releases/latest" target="_blank" rel="noreferrer" aria-label="View Megaman releases on GitHub">
                     <FaGithubAlt className="size-8 navbar-link"/>
                 </Link>
             </div>
