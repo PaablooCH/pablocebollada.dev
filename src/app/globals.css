@@ -16,10 +16,10 @@
     --color-text-secondary: #9ca3af;
     --color-muted: #6b7280;
 
-    /* Gradient - Dark theme with subtle accent hints */
+    /* Gradient - restrained dark theme with subtle accent hints */
     --color-gradient-start: #020617;
-    --color-gradient-end: #1a0a2e;
-    --color-gradient-accent: #0f4c75;
+    --color-gradient-end: #120b25;
+    --color-gradient-accent: #0b2942;
 
     --card-bg: rgba(15, 23, 42, 0.6);
     --card-border: rgba(56, 189, 248, 0.2);
@@ -170,10 +170,9 @@
     .glow {
         color: var(--color-primary);
         text-shadow:
-            0 0 8px rgba(56, 189, 248, 0.6),
-            0 0 16px rgba(56, 189, 248, 0.4),
-            0 0 32px rgba(14, 165, 233, 0.3),
-            0 0 64px rgba(14, 165, 233, 0.1);
+            0 0 6px rgba(56, 189, 248, 0.4),
+            0 0 14px rgba(56, 189, 248, 0.25),
+            0 0 28px rgba(14, 165, 233, 0.12);
 
         transition:
             color 0.3s ease,
@@ -181,12 +180,11 @@
     }
 
     .glow:hover {
-        color: var(--color-accent);
+        color: #7dd3fc;
         text-shadow:
-            0 0 5px rgba(250, 204, 21, 0.8),
-            0 0 10px rgba(250, 204, 21, 0.6),
-            0 0 20px rgba(250, 204, 21, 0.4),
-            0 0 40px rgba(250, 204, 21, 0.2);
+            0 0 6px rgba(125, 211, 252, 0.5),
+            0 0 16px rgba(56, 189, 248, 0.3),
+            0 0 30px rgba(14, 165, 233, 0.15);
     }
 
     /* Navigation */
@@ -261,7 +259,7 @@
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid var(--card-border);
         border-radius: 1rem;
-        box-shadow: 0px 4px 20px rgba(56, 189, 248, 0.1);
+        box-shadow: 0px 4px 20px rgba(56, 189, 248, 0.07);
         transition: all 0.3s ease;
         position: relative;
         display: flex;
@@ -272,7 +270,7 @@
 
     .project-card:hover {
         border: 1px solid var(--color-primary);
-        box-shadow: 0px 4px 30px rgba(56, 189, 248, 0.2);
+        box-shadow: 0px 6px 28px rgba(56, 189, 248, 0.14);
     }
 
     .project-card::before {
@@ -282,7 +280,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(168, 85, 247, 0.2));
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(168, 85, 247, 0.12));
 
         opacity: 0;
         transition: opacity 0.3s ease;
