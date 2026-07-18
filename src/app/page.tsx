@@ -86,15 +86,17 @@ export default function Home() {
                     </div>
                     <h1 className="pl-5 sm:pl-10 opacity-0 glow" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h1>
                 </div>
-                <Image className="relative mt-4 ml-auto block transition-transform grayscale bg-gray-300 object-none object-[56%_60%] w-[85px] h-[105px] hover:grayscale-0 sm:absolute sm:top-25 sm:right-20 sm:mt-0 sm:w-[115px] sm:h-[140px] md:top-40 md:right-40 md:w-42 md:h-[200px]"
-                    style={{animation: "slideToRight 3s ease-in-out"}}
-                    src={"/profile.png"}
-                    width={300}
-                    height={200}
-                    sizes="(max-width: 640px) 170px, (max-width: 768px) 220px, 300px"
-                    alt="Pablo Cebollada"
-                    loading="eager">
-                </Image>
+                <div className="group relative mt-4 ml-auto block w-[85px] h-[105px] sm:absolute sm:top-25 sm:right-20 sm:mt-0 sm:w-[115px] sm:h-[140px] md:top-40 md:right-40 md:w-42 md:h-[200px]">
+                    <Image
+                        fill
+                        className="bg-gray-300 object-cover object-[56%_60%] grayscale transition-[filter] group-hover:grayscale-0"
+                        style={{animation: "slideToRight 3s ease-in-out"}}
+                        src={"/profile.png"}
+                        sizes="(max-width: 640px) 85px, (max-width: 768px) 115px, 168px"
+                        alt="Pablo Cebollada"
+                        priority
+                    />
+                </div>
                 <div className="mt-12 sm:mt-28 md:mt-24">
                     <ConsoleTyping block={introductionLines} delay={4000}></ConsoleTyping>
                 </div>
@@ -117,11 +119,13 @@ export default function Home() {
                         In my free time, I enjoy exploring and experimenting with new technologies.
                     </p>
                 </div>
-                <Image className="w-auto h-auto grayscale object-none hover:grayscale-0 mt-8"
+                <Image className="w-full max-w-[799px] h-auto grayscale hover:grayscale-0 mt-8"
+                    style={{ height: 'auto' }}
                     src={"/presentation.jpg"}
-                    width={800}
+                    width={799}
                     height={533}
-                    alt="Pablo Cebollada">
+                    alt="Pablo Cebollada"
+                    loading="eager">
                 </Image>
             </section>
         </div>
