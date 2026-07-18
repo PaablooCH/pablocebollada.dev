@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function About() {
     return (
-        <div className={`min-h-[calc(100dvh-60px)] px-10 pt-5`}>
+        <div className={`min-h-[calc(100dvh-60px)] px-5 pt-5 sm:px-10`}>
             <h1 className="title-h1">ABOUT ME</h1>
             <section id="me" className="mt-8">
                 <h2 className="title-h2 hover:text-(--color-accent)">HI, I&apos;M PABLO 👋</h2>

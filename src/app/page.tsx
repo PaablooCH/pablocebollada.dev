@@ -77,16 +77,16 @@ export default function Home() {
     return (
         <div>
             {/* Hero Section */}
-            <section id="hero" className="relative min-h-[calc(100dvh-60px)] px-10 pt-5">
-                <div className="font-extrabold text-5xl sm:text-7xl md:text-9xl cursor-default">
+            <section id="hero" className="relative min-h-[calc(100dvh-60px)] px-5 pt-5 sm:px-10">
+                <div className="font-extrabold text-4xl sm:text-7xl md:text-9xl cursor-default">
                     <div className="flex flex-wrap items-center gap-2 opacity-0" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3s'}}>
                         <h1 className="glow">FULL</h1>
-                        <div className="border-b border-(--color-primary) w-4 sm-32 md:w-72 hover:border-yellow-300"></div>
+                        <div className="border-b border-(--color-primary) w-4 sm:w-32 md:w-72 hover:border-(--color-secondary)"></div>
                         <h1 className="glow">STACK</h1>
                     </div>
-                    <h1 className="pl-10 opacity-0 glow" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h1>
+                    <h1 className="pl-5 sm:pl-10 opacity-0 glow" style={{animation: "appearDown 2s ease-in-out forwards", animationDelay: '3.5s'}}>DEVELOPER</h1>
                 </div>
-                <Image className="absolute top-32 right-10 sm:top-25 sm:right-20 md:top-40 md:right-40 transition-transform grayscale bg-gray-300 object-none object-[56%_60%] w-[85px] h-[105px] sm:w-[115px] sm:h-[140px] md:w-42 md:h-[200px] hover:grayscale-0"
+                <Image className="relative mt-4 ml-auto block transition-transform grayscale bg-gray-300 object-none object-[56%_60%] w-[85px] h-[105px] hover:grayscale-0 sm:absolute sm:top-25 sm:right-20 sm:mt-0 sm:w-[115px] sm:h-[140px] md:top-40 md:right-40 md:w-42 md:h-[200px]"
                     style={{animation: "slideToRight 3s ease-in-out"}}
                     src={"/profile.png"}
                     width={300}
@@ -95,7 +95,7 @@ export default function Home() {
                     alt="Pablo Cebollada"
                     loading="eager">
                 </Image>
-                <div className="mt-36 sm:mt-28 md:mt-24">
+                <div className="mt-12 sm:mt-28 md:mt-24">
                     <ConsoleTyping block={introductionLines} delay={4000}></ConsoleTyping>
                 </div>
                 <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-yellow-300">π</div>
