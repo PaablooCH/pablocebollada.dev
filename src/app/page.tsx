@@ -62,14 +62,6 @@ const introductionLines: CommandLine[] = [
                 text: '        real_impact.' 
             }
         ]
-    },
-    {
-        cmds: [
-            {
-                color: 'mark',
-                text: '%' 
-            }
-        ]
     }
 ];
 
