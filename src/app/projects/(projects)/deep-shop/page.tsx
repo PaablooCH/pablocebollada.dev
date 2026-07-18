@@ -41,10 +41,10 @@ export default function DeepShop() {
 
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
-                <Link href="https://youtu.be/kp8jPeeym2U" target="_blank">
+                <Link href="https://youtu.be/kp8jPeeym2U" target="_blank" rel="noreferrer" aria-label="Watch the Deep Shop video on YouTube">
                     <FaYoutube className="size-8 navbar-link"/>
                 </Link>
-                <Link href="https://github.com/PaablooCH/Deep-Shop/releases/latest" target="_blank">
+                <Link href="https://github.com/PaablooCH/Deep-Shop/releases/latest" target="_blank" rel="noreferrer" aria-label="View Deep Shop releases on GitHub">
                     <FaGithubAlt className="size-8 navbar-link"/>
                 </Link>
             </div>

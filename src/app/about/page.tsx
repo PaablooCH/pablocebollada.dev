@@ -40,10 +40,10 @@ export default function About() {
                         I enjoy building well-structured applications, understanding how every layer fits together, and delivering solutions that are both robust and easy to evolve over time.
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
-                        <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer">
+                        <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Pablo Cebollada's CV">
                             <TbFileCv className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
-                        <a href="mailto:paabloo.ch@gmail.com" target="_blank">
+                        <a href="mailto:paabloo.ch@gmail.com" target="_blank" aria-label="Email Pablo Cebollada">
                             <IoIosMail className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
                         </a>
                     </div>

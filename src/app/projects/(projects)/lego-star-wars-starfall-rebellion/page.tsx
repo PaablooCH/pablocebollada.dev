@@ -43,10 +43,10 @@ export default function LegoStarWarsStarfallRebellion() {
                     an <strong className="text-(--color-primary)">visual effect</strong> class (e.g., for when the player is being hit or a fade out when he dies), and assisted in <strong>bug resolution</strong>.</p>
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
-                <Link href="https://starfall-rebellion.vercel.app" target="_blank">
+                <Link href="https://starfall-rebellion.vercel.app" target="_blank" rel="noreferrer" aria-label="Visit the Starfall Rebellion website">
                     <FaGlobe className="size-7 navbar-link"></FaGlobe>
                 </Link>
-                <Link href="https://github.com/Horizons-Games/Axolotl-Engine/releases/latest" target="_blank">
+                <Link href="https://github.com/Horizons-Games/Axolotl-Engine/releases/latest" target="_blank" rel="noreferrer" aria-label="View Axolotl Engine releases on GitHub">
                     <FaGithubAlt className="size-8 navbar-link"/>
                 </Link>
             </div>

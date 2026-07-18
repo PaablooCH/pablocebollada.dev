@@ -14,7 +14,7 @@ export default function GoBack({ url }: GoBackProps) {
     }
 
     return (
-        <button onClick={handleClick} aria-label="goBack" className="cursor-pointer my-2">
+        <button onClick={handleClick} aria-label="Back to projects" className="cursor-pointer my-2">
             <FaChevronLeft className="size-6 stroke-2 text my-2 navbar-link"/>
         </button>
     )

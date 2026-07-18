@@ -46,10 +46,10 @@ export default function AxolotlEngine() {
                 Video not available in this browser.
             </video>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
-                <Link href="https://horizons-games.vercel.app/en" target="_blank">
+                <Link href="https://horizons-games.vercel.app/en" target="_blank" rel="noreferrer" aria-label="Visit Horizons Games website">
                     <FaGlobe className="size-7 navbar-link"/>
                 </Link>
-                <Link href="https://github.com/Horizons-Games/Axolotl-Engine/releases/latest" target="_blank">
+                <Link href="https://github.com/Horizons-Games/Axolotl-Engine/releases/latest" target="_blank" rel="noreferrer" aria-label="View Axolotl Engine releases on GitHub">
                     <FaGithubAlt className="size-8 navbar-link" />
                 </Link>
             </div>
