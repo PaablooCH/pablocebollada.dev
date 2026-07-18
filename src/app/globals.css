@@ -325,7 +325,7 @@
 
     .project-card p {
         color: var(--color-text-secondary);
-        text-align: justify;
+        text-align: left;
     }
 
     .project-tech-tags {

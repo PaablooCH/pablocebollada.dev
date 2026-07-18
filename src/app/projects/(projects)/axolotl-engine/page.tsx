@@ -25,7 +25,7 @@ export default function AxolotlEngine() {
         <div className="min-h-dvh">
             <Header image="/Horizons.png" alt="Axolotl Engine" width={250} height={250} layoutId={"image-axolotl-engine"} className="bg-white"></Header>
             <h1 className="title-h1 mt-8">Axolotl Engine</h1>
-            <div className="text-justify text text-lg md:text-xl mt-4">
+            <div className="text text-lg md:text-xl mt-4">
                 <p>The Axolotl Engine is an in-house game engine developed in <strong className="text-(--color-primary)">C++</strong> that utilizes the <strong className="text-(--color-primary)">OpenGL API</strong> for rendering. 
                     It is created by Horizons Games, an educational game development studio founded by master&apos;s students from UPC School 
                     in Barcelona, Spain. This powerful tool empowers our developers to craft games with 3D graphics, custom gameplay mechanics, 

@@ -24,7 +24,7 @@ export default function LegoStarWarsStarfallRebellion() {
         <div className="min-h-dvh">
             <Header image="/starfall-rebellion.png" alt="Lego Star Wars: Starfall Rebellion" width={250} height={250} layoutId={"image-lego-star-wars-starfall-rebellion"}></Header>
             <h1 className="title-h1 mt-8">Lego Star Wars: Starfall Rebellion</h1>
-            <div className="text-justify text text-lg md:text-xl mt-4">
+            <div className="text text-lg md:text-xl mt-4">
                 <p>Starfall Rebellion is a single-player hack-and-slash game inspired by Lego Star Wars, entirely made using our in-house engine, 
                     <Link href="/projects/axolotl-engine"> <strong className="text-(--color-primary) cursor-pointer underline">Axolotl Engine</strong></Link>.</p>
 

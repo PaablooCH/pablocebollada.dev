@@ -24,7 +24,7 @@ export default function PabloCebolladaDev() {
         <div className="min-h-dvh">
             <Header image="/og-image.png" alt="pablocebollada.dev" width={300} height={300} layoutId={"image-pablocebollada-dev"} className="bg-white"></Header>
             <h1 className="title-h1 mt-8">pablocebollada.dev</h1>
-            <div className="text-justify text text-lg md:text-xl mt-4">
+            <div className="text text-lg md:text-xl mt-4">
                 <p>
                     This portfolio is a <strong className="text-(--color-primary)">personal web project</strong> built with 
                     <strong className="text-(--color-primary)"> React</strong> and 
