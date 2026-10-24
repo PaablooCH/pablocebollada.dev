@@ -41,10 +41,10 @@ export default function About() {
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
                         <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Pablo Cebollada's CV">
-                            <TbFileCv className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
+                            <TbFileCv className="size-8 hover:cursor-pointer hover:text-(--color-accent) transition-colors duration-300" />
                         </a>
                         <a href="mailto:paabloo.ch@gmail.com" target="_blank" aria-label="Email Pablo Cebollada">
-                            <IoIosMail className="size-8 hover:cursor-pointer hover:text-(--color-secondary) transition-colors duration-300" />
+                            <IoIosMail className="size-8 hover:cursor-pointer hover:text-(--color-accent) transition-colors duration-300" />
                         </a>
                     </div>
                 </div>
@@ -86,10 +86,10 @@ export default function About() {
                 </div>
                 <p className="mt-2 text-sm font-semibold tracking-wide text-secondary md:hidden">SWIPE TO EXPLORE →</p>
                 <div className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory py-4 px-2">
-                    <Experience position="Full-Stack Developer" company="Desico" period="Apr 25-Present" description={["Developed web and cloud applications for first-party platforms.", "Built and maintained front-end services using Nuxt and Tailwind.", "Deployed and managed applications on AWS."]}></Experience>
-                    <Experience position="Full-Stack Developer" company="Horizons Games" period="March 23-Nov 24" description={["Developed a corporate web application using React and Tailwind.", "Implemented features in C++ across different system components.", "Developed rendering features using multiple shaders for diverse rendering purposes.", "Performed profiling and debugging using a variety of performance analysis tools."]}></Experience>
-                    <Experience position="Full-Stack Developer" company="IThink UPC" period="Feb 22-Feb 23" description={["Developed responsive web applications using Angular and TypeScript.", "Collaborated closely with the design team to implement UI components.", "Developed backend services using Spring Boot and Java.", "Optimized application performance and overall user experience."]}></Experience>
-                    <Experience position="Full-Stack Developer (Internship)" company="Telespazio Ibérica" period="Apr 21-Jan 22" description={["Worked as a full-stack developer building web applications for both first- and third-party clients.", "Developed responsive web applications using Angular and TypeScript.", "Developed backend services using Spring Boot and Java."]}></Experience>
+                    <Experience position="Software Engineer" company="Desico" period="Apr 2025–Present" description={["Built Kotlin, Spring Boot and PostgreSQL backend services for an AWS-hosted facility management platform deployed across 20+ client environments.", "Cut data-query and map-rendering latency by 60% through database optimization and thread-safe multithreaded processing.", "Built two GIS geolocation and CCTV/security visualization modules (Vue frontend, C# backend) used by all clients."]}></Experience>
+                    <Experience position="Software Engineer" company="Horizons Games" period="Mar 2023–Nov 2024" description={["Developed a graphics engine for 3D scene visualization and model rendering.", "Led rendering optimization, eliminating a VRAM leak that caused several GB of growth in long-running sessions.", "Refactored engine components for thread safety and built a custom thread pool."]}></Experience>
+                    <Experience position="Software Engineer" company="IThink UPC" period="Feb 2022–Feb 2023" description={["Implemented authentication with short-lived access tokens.", "Built an image compression/decompression algorithm that reduced storage and processing time by 40–70%."]}></Experience>
+                    <Experience position="Software Engineer (Internship)" company="Telespazio Ibérica" period="Apr 2021–Jan 2022" description={["Developed full-stack web applications for first- and third-party clients.", "Built responsive frontends using Angular and TypeScript.", "Developed backend services using Spring Boot and Java."]}></Experience>
                 </div>
             </section>
 
