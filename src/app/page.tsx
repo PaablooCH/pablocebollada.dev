@@ -1,6 +1,7 @@
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
 import SeparatorLine from "@/components/separatorLine";
 import Image from "next/image";
+import FocusAreaCard from "@/app/components/focusAreaCard";
 import { createPageMetadata } from "./resources/metadata";
 import { home as config } from "./resources/config";
 
@@ -53,6 +54,24 @@ const introductionLines: CommandLine[] = [
     }
 ];
 
+const focusAreas = [
+    {
+        title: "Backend & Cloud",
+        description: "Production Kotlin services deployed across more than 20 client environments.",
+        tags: ["Kotlin", "Spring Boot", "PostgreSQL", "AWS"],
+    },
+    {
+        title: "Web Applications",
+        description: "Responsive interfaces for web platforms and geospatial tools.",
+        tags: ["Vue", "Angular", "React", "TypeScript"],
+    },
+    {
+        title: "Graphics & Games",
+        description: "Rendering features and gameplay systems for C++ engines and Unity projects.",
+        tags: ["C++", "OpenGL", "C#", "Unity"],
+    },
+];
+
 export default function Home() {
     return (
         <div>
@@ -84,28 +103,17 @@ export default function Home() {
             <SeparatorLine />
 
             {/* About Section */}
-            <section id="about" className="min-h-[calc(100dvh-4rem-1px)] px-5 pt-4 pb-8 sm:px-10">
-                <h2 className="title-h2">A BIT ABOUT ME</h2>
-                <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl md:w-2/3 text">
-                    <p>
-                        Full-stack developer with professional experience building web applications and a strong background in system-level programming.
-                    </p>
-                    <p>
-                        I focus on creating clean, maintainable, and scalable solutions, applying a systems-oriented mindset to modern web development.
-                    </p>
-                    <p>
-                        In my free time, I enjoy exploring and experimenting with new technologies.
-                    </p>
+            <section id="focus" aria-labelledby="focus-title" className="px-5 pt-8 pb-12 sm:px-10 sm:pt-12">
+                <h2 id="focus-title" className="title-h2">WHAT I BUILD</h2>
+                <p className="mt-3 max-w-2xl text-lg text">
+                    Production software across backend systems, web applications, and graphics.
+                </p>
+
+                <div className="projects-grid mt-8">
+                    {focusAreas.map((area) => (
+                        <FocusAreaCard key={area.title} {...area} />
+                    ))}
                 </div>
-                <Image className="w-full max-w-[799px] h-auto grayscale hover:grayscale-0 mt-8"
-                    style={{ height: 'auto' }}
-                    src={"/presentation.jpg"}
-                    width={799}
-                    height={533}
-                    sizes="(max-width: 879px) calc(100vw - 40px), 799px"
-                    alt="Pablo Cebollada"
-                    loading="lazy">
-                </Image>
             </section>
         </div>
     );
