@@ -1,25 +1,31 @@
 import Image from "next/image"
+import type { IconType } from "react-icons";
 
 type ToolProps = {
-    name: string,
-    logoUrl: string,
-    logoAlt: string,
-    pulse?: boolean,
-    dotColor?: string,
-    pulseColor?: string,
-}
+    name: string;
+    pulse?: boolean;
+    dotColor?: string;
+    pulseColor?: string;
+} & (
+    | { icon: IconType; color: string; logoUrl?: never }
+    | { logoUrl: string; icon?: never; color?: never }
+);
 
-export default function Tool({name, logoUrl, logoAlt, pulse, dotColor, pulseColor}: ToolProps) {
+export default function Tool({ name, logoUrl, icon: Icon, color, pulse, dotColor = "bg-sky-500", pulseColor = "bg-sky-400" }: ToolProps) {
     return (
-        <div className="flex items-center gap-4 md:grayscale hover:grayscale-0">
-            <div className="relative">
-                {pulse && <span className="absolute -right-2 -top-2 flex size-3 z-10">
-                    <span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${pulseColor} opacity-75`}></span>
-                    <span className={`relative inline-flex size-3 rounded-full ${dotColor}`}></span>
-                </span>}
-                <Image height="20" width="20" src={logoUrl} alt={logoAlt} unoptimized />
-            </div>
-            <p>{name}</p>
+        <div className="group flex min-w-0 items-center gap-3">
+            {Icon ? (
+                <span className="relative grid size-5 shrink-0 place-items-center">
+                    <Icon className="size-5 md:grayscale group-hover:grayscale-0" color={color} aria-hidden="true" />
+                    {pulse && (
+                        <span aria-hidden="true" className="absolute -right-1 -top-1 flex size-3">
+                            <span className={`absolute inline-flex h-full w-full animate-ping rounded-full motion-reduce:animate-none ${pulseColor} opacity-75`} />
+                            <span className={`relative inline-flex size-3 rounded-full ${dotColor}`} />
+                        </span>
+                    )}
+                </span>
+            ) : logoUrl && <Image height={20} width={20} src={logoUrl} alt="" className="shrink-0 md:grayscale group-hover:grayscale-0" />}
+            <p className="md:grayscale group-hover:grayscale-0">{name}</p>
         </div>
     );
 }

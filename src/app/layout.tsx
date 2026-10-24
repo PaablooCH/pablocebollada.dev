@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navBar";
-import { home as config } from "./resources/config";
+import { home as config, siteUrl } from "./resources/config";
+import { createPageMetadata } from "./resources/metadata";
 
 import { Analytics } from "@vercel/analytics/next"
 import { me } from "./resources/content";
@@ -19,25 +20,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(`https://${config.baseUrl}`),
-    title: config.title,
-    description: config.description,
+    ...createPageMetadata(config),
+    metadataBase: new URL(siteUrl),
     authors: [config.author],
     creator: me.GetFullName(),
-    keywords: config.keywords,
-    openGraph: {
-        title: config.title,
-        description: config.description,
-        url: `https://${config.baseUrl}`,
-        siteName: config.title,
-        images: [
-            {
-                url: "/og-image.png",
-            }
-        ],
-        locale: 'en_US',
-        type: 'website',
-    },
     robots: {
         index: true,
         follow: true,
@@ -52,6 +38,11 @@ export const metadata: Metadata = {
     }
 };
 
+export const viewport: Viewport = {
+    colorScheme: "dark",
+    themeColor: "#020617",
+};
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -59,14 +50,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <meta name="color-scheme" content="light dark"></meta>
-
             <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth background min-h-dvh`}>
+                <a href="#main-content" className="skip-link">Skip to content</a>
                 <NavBar />
                 <MyAnimatePresence>
-                    <main className="grow">
+                    <main id="main-content" tabIndex={-1} className="grow">
                         {children}
-                        <Analytics />
+                        {process.env.VERCEL === "1" && <Analytics />}
                     </main>
                 </MyAnimatePresence>                
             </body>

@@ -131,10 +131,10 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
     const isInteractiveReady = prefersReducedMotion || lineIndex >= block.length;
 
     useEffect(() => {
-        if (isInteractiveReady && activeResponseId === null) {
-            terminalInputRef.current?.focus();
+        if (isInteractiveReady && activeResponseId === null && submittedMessages.length > 0) {
+            terminalInputRef.current?.focus({ preventScroll: true });
         }
-    }, [activeResponseId, isInteractiveReady]);
+    }, [activeResponseId, isInteractiveReady, submittedMessages.length]);
 
     function RenderLines(line: CommandLine, to: number, i: number) {
         return line.cmds.slice(0, to).map((cmd, j) => {
@@ -193,7 +193,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
                 return <div key={message.id}>
                     <p className="flex text-lg md:text-xl leading-relaxed code">
                         <span className="text-yellow-400 whitespace-pre">% </span>
-                        <span className="text-white whitespace-pre-wrap">{message.text}</span>
+                        <span className="min-w-0 text-white whitespace-pre-wrap wrap-anywhere">{message.text}</span>
                     </p>
                     <p className="flex text-lg md:text-xl leading-relaxed code">
                         <span className="text-purple-500 whitespace-pre">{SYSTEM_TEXT.slice(0, systemLength)}</span>
@@ -205,12 +205,12 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
                     </p>
                 </div>;
             })}
-            <form onSubmit={handleSubmit} className="mt-2 flex w-full max-w-xl items-center gap-3 code" aria-label="Interactive terminal">
+            <form onSubmit={handleSubmit} className="mt-2 flex w-full max-w-xl items-center gap-3 code" aria-label="Interactive terminal demo">
                 <span className="text-lg text-yellow-400" aria-hidden="true">%</span>
                 <input
                     ref={terminalInputRef}
                     type="text"
-                    aria-label="Type a message in the terminal"
+                    aria-label="Type a message in the terminal demo"
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
                     maxLength={MAX_MESSAGE_LENGTH}
@@ -227,7 +227,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
     }
 
     if (prefersReducedMotion) {
-        return <div>
+        return <div className="overflow-x-auto">
             {block.map((line, i) => (
                 <p className="flex text-lg md:text-xl leading-relaxed code" key={i}>
                     {RenderLines(line, line.cmds.length, i)}
@@ -238,7 +238,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
         </div>;
     }
 
-    return <div>
+    return <div className="overflow-x-auto">
         { block.slice(0, lineIndex).map((line, i) => {
                 return <p className="flex text-lg md:text-xl leading-relaxed code" key={i}>
                     { RenderLines(line, line.cmds.length, i) }

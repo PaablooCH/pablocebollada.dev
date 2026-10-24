@@ -1,6 +1,8 @@
 'use client'
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotion } from "@/libs/useReducedMotion";
 import Link from "next/link";
+import Image from "next/image";
 import TechTag from "./techTag";
 
 type Props = {
@@ -12,13 +14,15 @@ type Props = {
     tags: string[]
 }
 
-export default function ProjectCard({ title, description, image, imageClassName, link, tags }: Props) {
+export default function ProjectCard({ title, description, image, imageClassName = "", link, tags }: Props) {
     const shouldReduceMotion = useReducedMotion();
 
     return (
         <Link href={"/projects/" + link} scroll={true}>
             <motion.div 
                 initial={shouldReduceMotion ? false : { opacity: 0 }} 
+                animate={shouldReduceMotion ? { opacity: 1 } : undefined}
+                transition={shouldReduceMotion ? { duration: 0 } : undefined}
                 whileInView={shouldReduceMotion ? undefined : { opacity: 1, transition: { duration: 0.8 } }} 
                 viewport={{ once: true, amount: 0.2 }} 
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.05, y: -2, transition: { type: "spring", stiffness: 300, damping: 10 } }} 
@@ -26,14 +30,16 @@ export default function ProjectCard({ title, description, image, imageClassName,
                 className="p-4 cursor-pointer project-card"
             >
                 <div className="grid place-items-center">
-                    <div className={`${imageClassName} project-card-image`}>
-                        <motion.img
+                    <motion.div layoutId={`image-${link}`} className={`${imageClassName} project-card-image`}>
+                        <Image
                             src={image}
                             alt={title}
-                            layoutId={`image-${link}`}
-                            className="aspect-square w-50"
+                            width={200}
+                            height={200}
+                            sizes="200px"
+                            className="h-50 w-50 object-contain"
                         />
-                    </div>
+                    </motion.div>
                 </div>
                 <h2>
                     {title}

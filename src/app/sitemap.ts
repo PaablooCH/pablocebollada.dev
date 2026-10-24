@@ -13,50 +13,42 @@ import {
 export default function Sitemap(): MetadataRoute.Sitemap {
     return [
         {
-            url: `https://${configHome.baseUrl}`,
-            lastModified: new Date(),
+            url: configHome.canonical,
             priority: 1.0,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configAbout.canonical}`,
-            lastModified: new Date(),
+            url: configAbout.canonical,
             priority: 0.9,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configProjects.canonical}`,
-            lastModified: new Date(),
+            url: configProjects.canonical,
             priority: 0.9,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configAxolotlEngine.canonical}`,
-            lastModified: new Date(),
+            url: configAxolotlEngine.canonical,
             priority: 0.8,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configDeepShop.canonical}`,
-            lastModified: new Date(),
+            url: configDeepShop.canonical,
             priority: 0.8,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configLegoStarWars.canonical}`,
-            lastModified: new Date(),
+            url: configLegoStarWars.canonical,
             priority: 0.8,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configMegaman.canonical}`,
-            lastModified: new Date(),
+            url: configMegaman.canonical,
             priority: 0.8,
             changeFrequency: 'monthly',
         },
         {
-            url: `https://${configPabloCebolladaDev.canonical}`,
-            lastModified: new Date(),
+            url: configPabloCebolladaDev.canonical,
             priority: 0.8,
             changeFrequency: 'monthly',
         }
