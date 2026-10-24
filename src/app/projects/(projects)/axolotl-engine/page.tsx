@@ -1,24 +1,11 @@
 import { FaGlobe } from "react-icons/fa6";
 import Header from "../components/header";
 import Link from "next/link";
-import { Metadata } from "next";
+import { createPageMetadata } from "@/app/resources/metadata";
 import { axolotlEngine as config } from "@/app/resources/config";
 import { FaGithubAlt } from "react-icons/fa6";
 
-export const metadata: Metadata = {
-    title: config.title,
-    description: config.description,
-    keywords: config.keywords,
-    openGraph: {
-        title: config.title,
-        description: config.description,
-        url: `https://${config.canonical}`,
-        type: 'website',
-    },
-    alternates: {
-        canonical: config.canonical
-    }
-};
+export const metadata = createPageMetadata(config);
 
 export default function AxolotlEngine() {
     return (
@@ -41,7 +28,7 @@ export default function AxolotlEngine() {
                     Additionally, as a part of the team, I reviewed pull requests in the repository to ensure <strong className="text-(--color-primary)">high quality</strong> and adherence to <strong className="text-(--color-primary)">programming best practices</strong>
                     and I also took on the responsibility of implementing some features in the engine and resolving <strong className="text-(--color-primary)">bugs</strong> and <strong className="text-(--color-primary)">memory leaks</strong>.</p>
             </div>
-            <video controls width="100%" height="auto" className="mt-4">
+            <video controls preload="none" playsInline className="mt-4 aspect-video w-full" aria-label="Axolotl Engine graphics showcase">
                 <source src="/workSamplersHorizons.mp4" type="video/mp4"></source>
                 Video not available in this browser.
             </video>

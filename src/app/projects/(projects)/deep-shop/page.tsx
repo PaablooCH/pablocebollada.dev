@@ -1,23 +1,10 @@
 import Link from "next/link";
 import Header from "../components/header";
-import { Metadata } from "next";
+import { createPageMetadata } from "@/app/resources/metadata";
 import { deepShop as config } from "@/app/resources/config";
 import { FaGithubAlt, FaYoutube } from "react-icons/fa6";
 
-export const metadata: Metadata = {
-    title: config.title,
-    description: config.description,
-    keywords: config.keywords,
-    openGraph: {
-        title: config.title,
-        description: config.description,
-        url: `https://${config.canonical}`,
-        type: 'website',
-    },
-    alternates: {
-        canonical: config.canonical
-    }
-};
+export const metadata = createPageMetadata(config);
 
 export default function DeepShop() {
     return (
