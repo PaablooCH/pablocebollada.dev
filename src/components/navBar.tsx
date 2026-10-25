@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import { type MouseEvent, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { type AnimationEvent, type MouseEvent, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import OutroPanels from "./outroPanels";
 import { usePathname, useRouter } from "next/navigation";
 import { FaLinkedin, FaGithubAlt } from "react-icons/fa6";
@@ -24,11 +24,14 @@ function getServerTime() {
 
 export default function NavBar() {
     const [dropDown, setDropDown] = useState(false);
-    const [renderPanels, setRenderPanels] = useState(false);
+    const [menuClosing, setMenuClosing] = useState(false);
+    const [transitionPhase, setTransitionPhase] = useState<"cover" | "reveal" | null>(null);
     const myTime = useSyncExternalStore(subscribeToClock, getMyTime, getServerTime);
     const menuRef = useRef<HTMLDialogElement>(null);
     const menuButtonRef = useRef<HTMLButtonElement>(null);
-    const navigationTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+    const navigationTargetRef = useRef<string | null>(null);
+    const navigationOriginRef = useRef<string | null>(null);
+    const finishedPanelsRef = useRef<Set<"left" | "right">>(new Set());
     const router = useRouter();
     const pathname = usePathname();
 
@@ -51,9 +54,37 @@ export default function NavBar() {
     }, [dropDown]);
 
     useEffect(() => {
-        const timers = navigationTimers.current;
-        return () => timers.forEach(clearTimeout);
-    }, []);
+        finishedPanelsRef.current.clear();
+    }, [transitionPhase]);
+
+    useEffect(() => {
+        if (transitionPhase === "cover" && pathname !== navigationOriginRef.current) {
+            setTransitionPhase("reveal");
+        }
+    }, [pathname, transitionPhase]);
+
+    const closeMenu = () => {
+        if (!dropDown || menuClosing) {
+            return;
+        }
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setDropDown(false);
+            setMenuClosing(false);
+            return;
+        }
+
+        setMenuClosing(true);
+    };
+
+    const handleMenuAnimationEnd = (event: AnimationEvent<HTMLDialogElement>) => {
+        if (event.animationName !== "navbar-menu-exit") {
+            return;
+        }
+
+        setMenuClosing(false);
+        setDropDown(false);
+    };
 
     const activateOutro = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
@@ -61,48 +92,72 @@ export default function NavBar() {
         }
 
         event.preventDefault();
-        navigationTimers.current.forEach(clearTimeout);
-        navigationTimers.current.length = 0;
-        setDropDown(false);
+        if (transitionPhase) {
+            return;
+        }
 
         if (pathname === href) {
-            setRenderPanels(false);
+            closeMenu();
             return;
         }
 
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            setRenderPanels(false);
+            setMenuClosing(false);
+            setDropDown(false);
             router.push(href);
             return;
         }
 
+        closeMenu();
         router.prefetch(href);
-        setRenderPanels(true);
-        navigationTimers.current.push(
-            setTimeout(() => router.push(href), 1000),
-            setTimeout(() => setRenderPanels(false), 3000),
-        );
+        navigationOriginRef.current = pathname;
+        navigationTargetRef.current = href;
+        finishedPanelsRef.current.clear();
+        setTransitionPhase("cover");
+    };
+
+    const handlePanelAnimationEnd = (side: "left" | "right") => {
+        if (!transitionPhase || finishedPanelsRef.current.has(side)) {
+            return;
+        }
+
+        finishedPanelsRef.current.add(side);
+        if (finishedPanelsRef.current.size < 2) {
+            return;
+        }
+
+        finishedPanelsRef.current.clear();
+        if (transitionPhase === "cover") {
+            if (navigationTargetRef.current) {
+                router.push(navigationTargetRef.current);
+            }
+            return;
+        }
+
+        navigationTargetRef.current = null;
+        navigationOriginRef.current = null;
+        setTransitionPhase(null);
     };
 
     return (
         <nav aria-label="Main navigation" className="relative">
-            {renderPanels && <OutroPanels />}
-            <dialog ref={menuRef} id="site-navigation" aria-label="Site navigation" onClose={() => setDropDown(false)} className={`navbar fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 px-5 py-4 sm:px-10 ${dropDown ? 'bounce' : ''}`}>
+            {transitionPhase && <OutroPanels phase={transitionPhase} onPanelAnimationEnd={handlePanelAnimationEnd} />}
+            <dialog ref={menuRef} id="site-navigation" aria-label="Site navigation" onClose={() => { setDropDown(false); setMenuClosing(false); }} onAnimationEnd={handleMenuAnimationEnd} className={`navbar fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 px-5 py-4 sm:px-10 ${menuClosing ? 'navbar-menu-exit' : dropDown ? 'navbar-menu-enter' : ''}`}>
                 <div className="flex h-full flex-col justify-between">
                     <div className="font-extrabold text-xl text-end">
-                        <button type="button" className="cursor-pointer navbar-link" onClick={() => setDropDown(false)} aria-label="Close navigation menu">Close</button>
+                        <button type="button" className="cursor-pointer navbar-link menu-link menu-link--yellow" onClick={closeMenu} aria-label="Close navigation menu">Close</button>
                     </div>
                     <div className="flex flex-col items-start sm:items-center gap-8 tracking-wide">
-                        <Link href="/" className="font-extrabold text-4xl sm:text-6xl navbar-link" aria-current={pathname === '/' ? 'page' : undefined} onClick={(event) => activateOutro(event, '/')}>HOME</Link>
-                        <Link href="/about" className="font-extrabold text-4xl sm:text-6xl navbar-link" aria-current={pathname === '/about' ? 'page' : undefined} onClick={(event) => activateOutro(event, '/about')}>ABOUT ME</Link>
-                        <Link href="/projects" className="font-extrabold text-4xl sm:text-6xl navbar-link" aria-current={pathname.startsWith('/projects') ? 'page' : undefined} onClick={(event) => activateOutro(event, '/projects')}>PROJECTS</Link>
+                        <Link href="/" className="font-extrabold text-4xl sm:text-6xl navbar-link menu-link menu-link--blue" aria-current={pathname === '/' ? 'page' : undefined} onClick={(event) => activateOutro(event, '/')}>HOME</Link>
+                        <Link href="/about" className="font-extrabold text-4xl sm:text-6xl navbar-link menu-link menu-link--red" aria-current={pathname === '/about' ? 'page' : undefined} onClick={(event) => activateOutro(event, '/about')}>ABOUT ME</Link>
+                        <Link href="/projects" className="font-extrabold text-4xl sm:text-6xl navbar-link menu-link menu-link--green" aria-current={pathname.startsWith('/projects') ? 'page' : undefined} onClick={(event) => activateOutro(event, '/projects')}>PROJECTS</Link>
 
                         <div className="flex flex-row gap-8 w-full justify-center">
                             <Link href="https://www.linkedin.com/in/pablo-cebollada-hernández/" target="_blank" rel="noopener noreferrer" aria-label="Pablo Cebollada on LinkedIn" className="p-2">
-                                <FaLinkedin className="size-8 navbar-link" aria-hidden="true" />
+                                <FaLinkedin className="size-8 ps1-icon-hover ps1-icon-hover--blue" aria-hidden="true" />
                             </Link>
                             <Link href="https://github.com/PaablooCH" target="_blank" rel="noopener noreferrer" aria-label="Pablo Cebollada on GitHub" className="p-2">
-                                <FaGithubAlt className="size-8 navbar-link" aria-hidden="true" />
+                                <FaGithubAlt className="size-8 ps1-icon-hover ps1-icon-hover--red" aria-hidden="true" />
                             </Link>
                         </div>
                     </div>
@@ -114,9 +169,9 @@ export default function NavBar() {
 
             <div className="navbar grid grid-cols-[minmax(0,1fr)_auto] gap-4 w-full items-center px-5 py-4 sm:grid-cols-[1fr_auto_1fr] sm:px-10">
                 <Link href="/" className="navbar-brand text-base sm:text-xl" onClick={(event) => activateOutro(event, '/')}>PABLO CEBOLLADA</Link>
-                <button ref={menuButtonRef} type="button" className="justify-self-center grid grid-rows-2 cursor-pointer navbar-toggle p-2" onClick={() => setDropDown(true)} aria-expanded={dropDown} aria-controls="site-navigation" aria-haspopup="dialog" aria-label="Open navigation menu">
-                    <span className="border-b-2 h-1 w-10 sm:w-12 md:w-24"></span>
-                    <span className="border-b-2 h-2 w-10 sm:w-12 md:w-24"></span>
+                <button ref={menuButtonRef} type="button" className="justify-self-center grid grid-rows-2 cursor-pointer navbar-toggle group p-2" onClick={() => { setMenuClosing(false); setDropDown(true); }} aria-expanded={dropDown} aria-controls="site-navigation" aria-haspopup="dialog" aria-label="Open navigation menu">
+                    <span className="border-b-2 h-1 w-10 sm:w-12 md:w-24 group-hover:border-(--ps1-blue) group-focus-visible:border-(--ps1-blue)"></span>
+                    <span className="border-b-2 h-2 w-10 sm:w-12 md:w-24 group-hover:border-(--ps1-red) group-focus-visible:border-(--ps1-red)"></span>
                 </button>
                 <span className="hidden justify-self-end navbar-time sm:inline">BCN · {myTime}</span>
             </div>

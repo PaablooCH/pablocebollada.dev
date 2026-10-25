@@ -4,34 +4,44 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-    --background: #020617;
-    color-scheme: dark;
-    /* Brand */
-    --color-primary: #38bdf8;
-    --color-primary-dark: #0ea5e9;
-    --color-secondary: #a855f7;
-    --color-accent: #facc15;
+    --color-shell: #c4c5c4;
+    --background: var(--color-shell);
+    color-scheme: light;
+    /* PS1-inspired graphite, shell gray, and logo colors */
+    --color-primary: #17478f;
+    --color-primary-light: #245394;
+    --color-primary-dark: #103773;
+    --color-primary-rgb: 46, 109, 180;
+    --color-secondary: #982a24;
+    --color-secondary-rgb: 223, 0, 36;
+    --color-accent: #695000;
+    --color-success: #245c37;
+    --ps1-blue: #2e6db4;
+    --ps1-red: #df0024;
+    --ps1-green: #00ac9f;
+    --ps1-yellow: #f3c300;
+    --color-surface: #d8d9d8;
     
     /* Text */
-    --color-text: #e5e7eb;
-    --color-text-secondary: #9ca3af;
-    --color-muted: #6b7280;
+    --color-text: #202326;
+    --color-text-secondary: #4b4e50;
+    --color-muted: #4b4e50;
 
-    /* Gradient - restrained dark theme with subtle accent hints */
-    --color-gradient-start: #020617;
-    --color-gradient-end: #0b1220;
-    --color-gradient-accent: #0b2942;
-
-    --card-bg: rgba(15, 23, 42, 0.6);
-    --card-border: rgba(56, 189, 248, 0.2);
-    --nav-bg: linear-gradient(180deg, rgba(2, 6, 23, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+    --card-bg: rgba(236, 237, 236, 0.72);
+    --card-border: rgba(32, 35, 38, 0.2);
+    --nav-bg: rgba(213, 214, 213, 0.95);
 }
 
 @layer components {
 
+    .separator-line {
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(var(--color-primary-rgb), 0.25), transparent);
+        box-shadow: 0 10px 24px rgba(var(--color-primary-rgb), 0.1);
+    }
+
     .background {
-        background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-accent) 50%, var(--color-gradient-end) 100%);
-        background-attachment: fixed;
+        background-color: var(--background);
     }
 
     /* Typography */
@@ -172,9 +182,9 @@
     .glow {
         color: var(--color-primary);
         text-shadow:
-            0 0 6px rgba(56, 189, 248, 0.4),
-            0 0 14px rgba(56, 189, 248, 0.25),
-            0 0 28px rgba(14, 165, 233, 0.12);
+            0 0 6px rgba(var(--color-primary-rgb), 0.4),
+            0 0 14px rgba(var(--color-primary-rgb), 0.25),
+            0 0 28px rgba(var(--color-primary-rgb), 0.12);
 
         transition:
             color 0.3s ease,
@@ -182,26 +192,26 @@
     }
 
     .glow:hover {
-        color: #7dd3fc;
+        color: var(--color-primary-light);
         text-shadow:
-            0 0 6px rgba(125, 211, 252, 0.5),
-            0 0 16px rgba(56, 189, 248, 0.3),
-            0 0 30px rgba(14, 165, 233, 0.15);
+            0 0 6px rgba(var(--color-primary-rgb), 0.5),
+            0 0 16px rgba(var(--color-primary-rgb), 0.3),
+            0 0 30px rgba(var(--color-primary-rgb), 0.15);
     }
 
     /* Navigation */
     .navbar {
         background: var(--nav-bg);
-        border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+        border-bottom: 2px solid rgba(var(--color-primary-rgb), 0.3);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.05);
+        box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.08);
         transition: all 0.3s ease;
     }
 
     .navbar:hover {
-        border-bottom-color: rgba(56, 189, 248, 0.5);
-        box-shadow: 0 4px 16px rgba(56, 189, 248, 0.1);
+        border-bottom-color: rgba(var(--color-primary-rgb), 0.6);
+        box-shadow: 0 4px 16px rgba(var(--color-primary-rgb), 0.16);
     }
 
     .navbar-link {
@@ -212,7 +222,63 @@
 
     .navbar-link:hover {
         color: var(--color-primary);
-        text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+        text-shadow: 0 0 8px rgba(var(--color-primary-rgb), 0.4);
+    }
+
+    .ps1-icon-hover {
+        transition: color 0.2s ease;
+    }
+
+    .ps1-icon-hover--blue:hover {
+        color: var(--ps1-blue);
+        text-shadow: none;
+    }
+
+    .ps1-icon-hover--red:hover {
+        color: var(--ps1-red);
+        text-shadow: none;
+    }
+
+    .ps1-icon-hover--green:hover {
+        color: var(--ps1-green);
+        text-shadow: none;
+    }
+
+    .ps1-icon-hover--yellow:hover {
+        color: var(--ps1-yellow);
+        text-shadow: none;
+    }
+
+    #site-navigation .menu-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.25rem;
+        transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    #site-navigation .menu-link--blue:is(:hover, :focus-visible) {
+        color: #fff;
+        background-color: var(--ps1-blue);
+        text-shadow: none;
+    }
+
+    #site-navigation .menu-link--red:is(:hover, :focus-visible) {
+        color: #fff;
+        background-color: var(--ps1-red);
+        text-shadow: none;
+    }
+
+    #site-navigation .menu-link--green:is(:hover, :focus-visible) {
+        color: var(--color-text);
+        background-color: var(--ps1-green);
+        text-shadow: none;
+    }
+
+    #site-navigation .menu-link--yellow:is(:hover, :focus-visible) {
+        color: var(--color-text);
+        background-color: var(--ps1-yellow);
+        text-shadow: none;
     }
 
     .navbar-brand {
@@ -221,6 +287,23 @@
         font-size: 1.25rem;
         letter-spacing: 0.05em;
         transition: all 0.3s ease;
+    }
+
+    .navbar-brand::before {
+        content: "";
+        display: inline-block;
+        width: 0.35rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+        vertical-align: -0.12em;
+        border-radius: 2px;
+        background: linear-gradient(
+            to bottom,
+            var(--ps1-red) 0 25%,
+            var(--ps1-yellow) 25% 50%,
+            var(--ps1-green) 50% 75%,
+            var(--ps1-blue) 75% 100%
+        );
     }
 
     .navbar-brand:hover {
@@ -261,7 +344,7 @@
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid var(--card-border);
         border-radius: 1rem;
-        box-shadow: 0px 4px 20px rgba(56, 189, 248, 0.07);
+        box-shadow: 0px 4px 20px rgba(var(--color-primary-rgb), 0.08);
         transition: all 0.3s ease;
         position: relative;
         display: flex;
@@ -272,7 +355,7 @@
 
     .project-card:hover {
         border: 1px solid var(--color-primary);
-        box-shadow: 0px 6px 28px rgba(56, 189, 248, 0.14);
+        box-shadow: 0px 6px 28px rgba(var(--color-primary-rgb), 0.18);
     }
 
     .project-card::before {
@@ -282,7 +365,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(168, 85, 247, 0.12));
+        background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.16), rgba(var(--color-secondary-rgb), 0.12));
 
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -307,7 +390,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(45deg, transparent 0%, rgba(56, 189, 248, 0.15) 50%, transparent 100%);
+        background: linear-gradient(45deg, transparent 0%, rgba(var(--color-primary-rgb), 0.16) 50%, transparent 100%);
 
         transform: translateX(-100%);
         transition: transform 0.6s ease;
@@ -341,7 +424,7 @@
     .project-tech-tags span {
         padding: 0.25rem 0.5rem;
 
-        background: rgba(56, 189, 248, 0.05);
+        background: rgba(var(--color-primary-rgb), 0.08);
         
         border: 1px solid var(--color-primary-dark);
         border-radius: 0.8rem;
@@ -352,8 +435,8 @@
     }
 
     .project-tech-tags span:hover {
-        background: rgba(56, 189, 248, 0.15);
-        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+        background: rgba(var(--color-primary-rgb), 0.18);
+        box-shadow: 0 0 8px rgba(var(--color-primary-rgb), 0.3);
     }
 }
 
@@ -368,14 +451,26 @@ body {
     outline-offset: 4px;
 }
 
+.terminal-input:focus-visible {
+    outline: none;
+    box-shadow: 0 1px 0 var(--ps1-blue);
+}
+
+.terminal-submit:focus-visible {
+    outline: none;
+    text-decoration: underline;
+    text-decoration-color: var(--ps1-blue);
+    text-underline-offset: 0.25em;
+}
+
 .skip-link {
     position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 50;
     padding: 0.75rem 1rem;
-    color: var(--background);
-    background: var(--color-accent);
+    color: #fff;
+    background: var(--color-primary);
     transform: translateY(-200%);
 }
 

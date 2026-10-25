@@ -9,11 +9,11 @@ export default function ThemeSwitch() {
 
     if (resolvedTheme === 'dark')
     {
-        return <IoSunnyOutline className="size-6 hover:cursor-pointer" onClick={() => setTheme('light')}></IoSunnyOutline>
+        return <IoSunnyOutline className="size-6 hover:cursor-pointer ps1-icon-hover ps1-icon-hover--yellow" onClick={() => setTheme('light')}></IoSunnyOutline>
     }
     else if (resolvedTheme === 'light')
     {
-        return <IoMoonOutline className="size-6 hover:cursor-pointer" onClick={() => setTheme('dark')}></IoMoonOutline>
+        return <IoMoonOutline className="size-6 hover:cursor-pointer ps1-icon-hover ps1-icon-hover--blue" onClick={() => setTheme('dark')}></IoMoonOutline>
     }
 
     return (

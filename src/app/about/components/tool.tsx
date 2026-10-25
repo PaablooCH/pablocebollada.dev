@@ -11,7 +11,7 @@ type ToolProps = {
     | { logoUrl: string; icon?: never; color?: never }
 );
 
-export default function Tool({ name, logoUrl, icon: Icon, color, pulse, dotColor = "bg-sky-500", pulseColor = "bg-sky-400" }: ToolProps) {
+export default function Tool({ name, logoUrl, icon: Icon, color, pulse, dotColor = "bg-(--ps1-blue)", pulseColor = "bg-(--ps1-blue)" }: ToolProps) {
     return (
         <div className="group flex min-w-0 items-center gap-3">
             {Icon ? (

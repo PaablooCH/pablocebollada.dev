@@ -30,10 +30,10 @@ export default function About() {
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
                         <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Pablo Cebollada's CV (PDF, new tab)" className="p-2 hover:text-(--color-accent) focus-visible:text-(--color-accent) transition-colors duration-300">
-                            <TbFileCv className="size-8" aria-hidden="true" />
+                            <TbFileCv className="size-8 ps1-icon-hover ps1-icon-hover--blue" aria-hidden="true" />
                         </a>
                         <a href="mailto:paabloo.ch@gmail.com" aria-label="Email Pablo Cebollada" className="p-2 hover:text-(--color-accent) focus-visible:text-(--color-accent) transition-colors duration-300">
-                            <IoIosMail className="size-8" aria-hidden="true" />
+                            <IoIosMail className="size-8 ps1-icon-hover ps1-icon-hover--red" aria-hidden="true" />
                         </a>
                     </div>
                 </div>
@@ -42,17 +42,17 @@ export default function About() {
             <SeparatorLine />
 
             <section id="tools">
-                <div className="flex items-center gap-2 title-h2 hover:text-emerald-300">
+                    <div className="flex items-center gap-2 title-h2 hover:text-(--color-success)">
                     <h2>TOOLS </h2>
-                    <IoIosCog className="size-10 shrink-0" aria-hidden="true" />
+                    <IoIosCog className="size-10 shrink-0 ps1-icon-hover ps1-icon-hover--green" aria-hidden="true" />
                 </div>
                 
                 <p className="flex flex-col gap-4 mt-4 text-lg md:text-xl text">
                     My experience includes Kotlin, Spring Boot, PostgreSQL and AWS for backend services, and Vue, Nuxt, Angular, React and TypeScript for frontend development. I also have a background in C++ graphics and C# game development. Here are some of the languages and tools I&apos;ve worked with.
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4 text gap-x-4 gap-y-8">
-                    <Tool name="React" icon={SiReact} color="#61dafb" pulse dotColor="bg-gray-500 group-hover:bg-sky-500" pulseColor="bg-gray-400 group-hover:bg-sky-400" />
-                    <Tool name="Kotlin" icon={SiKotlin} color="#7f52ff" pulse dotColor="bg-gray-500 group-hover:bg-purple-500" pulseColor="bg-gray-400 group-hover:bg-purple-400" />
+                    <Tool name="React" icon={SiReact} color="#61dafb" pulse />
+                    <Tool name="Kotlin" icon={SiKotlin} color="#7f52ff" pulse dotColor="bg-(--ps1-red)" pulseColor="bg-(--ps1-red)" />
                     <Tool name="AWS" logoUrl="/aws-color.svg" />
                     <Tool name="TypeScript" icon={SiTypescript} color="#3178c6" />
                     <Tool name="Tailwind CSS" icon={SiTailwindcss} color="#06b6d4" />
@@ -73,7 +73,7 @@ export default function About() {
             <section id="experience">
                 <div className="flex items-center gap-2 title-h2 hover:text-(--color-secondary)">
                     <h2>EXPERIENCE </h2>
-                    <FaArrowTrendUp className="size-10 shrink-0" aria-hidden="true" />
+                    <FaArrowTrendUp className="size-10 shrink-0 ps1-icon-hover ps1-icon-hover--red" aria-hidden="true" />
                 </div>
                 <p className="mt-2 text-sm font-semibold tracking-wide text-secondary 2xl:hidden">SCROLL TO EXPLORE →</p>
                 <div role="region" aria-label="Work experience" tabIndex={0} className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory motion-reduce:snap-none py-4 px-2">
@@ -87,9 +87,9 @@ export default function About() {
             <SeparatorLine />
 
             <section id="education" className="mb-10">
-                <div className="flex items-center gap-2 title-h2 hover:text-sky-300">
+                <div className="flex items-center gap-2 title-h2 hover:text-(--color-primary)">
                     <h2>EDUCATION </h2>
-                    <FaBook className="size-8 shrink-0" aria-hidden="true" />
+                    <FaBook className="size-8 shrink-0 ps1-icon-hover ps1-icon-hover--blue" aria-hidden="true" />
                 </div>
                 <p className="mt-2 text-sm font-semibold tracking-wide text-secondary md:hidden">SCROLL TO EXPLORE →</p>
                 <div role="region" aria-label="Education" tabIndex={0} className="flex gap-6 w-full rounded-2xl mt-4 items-start overflow-x-auto snap-x snap-mandatory motion-reduce:snap-none py-4 px-2">

@@ -27,18 +27,18 @@ const FULL_RESPONSE_LENGTH = SYSTEM_TEXT.length + RESPONSE_TEXT.length;
 const MAX_MESSAGE_LENGTH = 38;
 
 const COLOR_PROMP: Record<string, string> = {
-    mark: 'text-yellow-400',
-    title: 'text-purple-500',
-    entry: 'text-green-500',
-    blank: 'text-white'
+    mark: 'text-(--color-accent)',
+    title: 'text-(--color-secondary)',
+    entry: 'text-(--color-success)',
+    blank: 'text-(--color-text)'
 }
 
 function ParseColor(color: string) {
-    return COLOR_PROMP[color] ?? 'text-white';
+    return COLOR_PROMP[color] ?? 'text-(--color-text)';
 }
 
 function Cursor(animate: boolean = false, spacing: string = 'ml-2') {
-    return <span className={`${spacing} ${animate && 'cursor_animation'} text-white cursor-default`}>▋</span>
+    return <span className={`${spacing} ${animate && 'cursor_animation'} text-(--color-text) cursor-default`}>▋</span>
 }
 
 export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTypingProps) {
@@ -131,7 +131,7 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
     const isInteractiveReady = prefersReducedMotion || lineIndex >= block.length;
 
     useEffect(() => {
-        if (isInteractiveReady && activeResponseId === null && submittedMessages.length > 0) {
+        if (isInteractiveReady && activeResponseId === null) {
             terminalInputRef.current?.focus({ preventScroll: true });
         }
     }, [activeResponseId, isInteractiveReady, submittedMessages.length]);
@@ -192,21 +192,21 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
 
                 return <div key={message.id}>
                     <p className="flex text-lg md:text-xl leading-relaxed code">
-                        <span className="text-yellow-400 whitespace-pre">% </span>
-                        <span className="min-w-0 text-white whitespace-pre-wrap wrap-anywhere">{message.text}</span>
+                        <span className="text-(--color-accent) whitespace-pre">% </span>
+                        <span className="min-w-0 text-(--color-text) whitespace-pre-wrap wrap-anywhere">{message.text}</span>
                     </p>
                     <p className="flex text-lg md:text-xl leading-relaxed code">
-                        <span className="text-purple-500 whitespace-pre">{SYSTEM_TEXT.slice(0, systemLength)}</span>
+                        <span className="text-(--color-secondary) whitespace-pre">{SYSTEM_TEXT.slice(0, systemLength)}</span>
                         {isResponding && responseLength < SYSTEM_TEXT.length && Cursor(true)}
                     </p>
                     <p className="flex text-lg md:text-xl leading-relaxed code">
-                        <span className="text-white whitespace-pre">{RESPONSE_TEXT.slice(0, responseLengthAfterSystem)}</span>
+                        <span className="text-(--color-text) whitespace-pre">{RESPONSE_TEXT.slice(0, responseLengthAfterSystem)}</span>
                         {isResponding && responseLength >= SYSTEM_TEXT.length && Cursor(true)}
                     </p>
                 </div>;
             })}
             <form onSubmit={handleSubmit} className="mt-2 flex w-full max-w-xl items-center gap-3 code" aria-label="Interactive terminal demo">
-                <span className="text-lg text-yellow-400" aria-hidden="true">%</span>
+                <span className="text-lg text-(--color-accent)" aria-hidden="true">%</span>
                 <input
                     ref={terminalInputRef}
                     type="text"
@@ -214,12 +214,12 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
                     maxLength={MAX_MESSAGE_LENGTH}
-                    className="terminal-input min-w-[1ch] max-w-[calc(100%-5rem)] border-0 bg-transparent p-0 text-lg text-white caret-(--color-primary)"
+                    className="terminal-input min-w-[1ch] max-w-[calc(100%-5rem)] border-0 bg-transparent p-0 text-lg text-(--color-text) caret-transparent"
                     style={{ width: `${Math.max(inputValue.length, 1)}ch` }}
                     disabled={activeResponseId !== null}
                 />
                 {activeResponseId === null && Cursor(true, 'ml-0.5')}
-                <button type="submit" aria-label="Execute terminal message" className="ml-auto text-sm font-bold tracking-wide text-primary hover:text-accent disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer" disabled={activeResponseId !== null}>
+                <button type="submit" aria-label="Execute terminal message" className="terminal-submit ml-auto text-sm font-bold tracking-wide text-primary hover:text-accent disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer" disabled={activeResponseId !== null}>
                     [ EXEC ↵ ]
                 </button>
             </form>
