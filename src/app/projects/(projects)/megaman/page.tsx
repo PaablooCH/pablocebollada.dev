@@ -31,7 +31,7 @@ export default function Megaman() {
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
                 <Link href="https://github.com/PaablooCH/Megaman/releases/latest" target="_blank" rel="noreferrer" aria-label="View Megaman releases on GitHub">
-                    <FaGithubAlt className="size-8 navbar-link"/>
+                    <FaGithubAlt className="size-8 navbar-link ps1-icon-hover ps1-icon-hover--red"/>
                 </Link>
             </div>
         </div>

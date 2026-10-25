@@ -27,14 +27,14 @@ export default function LegoStarWarsStarfallRebellion() {
                     and ultimately put an end to the tyranny that is affecting your world.</p>
 
                 <p className="mt-2">In this project, I developed the  <strong className="text-(--color-primary)">power-up system</strong>, 
-                    an <strong className="text-(--color-primary)">visual effect</strong> class (e.g., for when the player is being hit or a fade out when he dies), and assisted in <strong>bug resolution</strong>.</p>
+                    an <strong className="text-(--color-primary)">visual effect</strong> class (e.g., for when the player is being hit or a fade out when he dies), and assisted in <strong className="text-(--color-primary)">bug resolution</strong>.</p>
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
                 <Link href="https://starfall-rebellion.vercel.app" target="_blank" rel="noreferrer" aria-label="Visit the Starfall Rebellion website">
-                    <FaGlobe className="size-7 navbar-link"></FaGlobe>
+                    <FaGlobe className="size-7 navbar-link ps1-icon-hover ps1-icon-hover--yellow"></FaGlobe>
                 </Link>
                 <Link href="https://github.com/Horizons-Games/Axolotl-Engine/releases/latest" target="_blank" rel="noreferrer" aria-label="View Axolotl Engine releases on GitHub">
-                    <FaGithubAlt className="size-8 navbar-link"/>
+                    <FaGithubAlt className="size-8 navbar-link ps1-icon-hover ps1-icon-hover--green"/>
                 </Link>
             </div>
         </div>

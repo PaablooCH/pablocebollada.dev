@@ -1,20 +1,16 @@
-'use client'
-import { useEffect, useState } from "react"
+type PanelSide = "left" | "right";
+type TransitionPhase = "cover" | "reveal";
 
-export default function OutroPanels() {
-    const [customClass, setCustomClass] = useState('');
+type Props = {
+    phase: TransitionPhase;
+    onPanelAnimationEnd: (side: PanelSide) => void;
+};
 
-    useEffect(() => {
-        const t = setTimeout(() => {
-            setCustomClass('unblur_backdrop');
-        }, 2000);
-        return () => clearTimeout(t);
-    }, []);
-
+export default function OutroPanels({ phase, onPanelAnimationEnd }: Props) {
     return (
-        <div aria-hidden="true" className={`fixed top-0 left-0 w-screen h-dvh z-20 ${customClass}`}>
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-slate-950 animate_slide_in_left"></div>
-            <div className="absolute top-0 left-1/2 w-1/2 h-full bg-slate-950 animate_slide_in_right"></div>
+        <div aria-hidden="true" className={`navigation-transition navigation-transition--${phase}`}>
+            <div className="navigation-transition-panel navigation-transition-panel--left" onAnimationEnd={() => onPanelAnimationEnd("left")} />
+            <div className="navigation-transition-panel navigation-transition-panel--right" onAnimationEnd={() => onPanelAnimationEnd("right")} />
         </div>
     );
 }

@@ -10,7 +10,7 @@ export const metadata = createPageMetadata(config);
 export default function AxolotlEngine() {
     return (
         <div className="min-h-dvh">
-            <Header image="/Horizons.png" alt="Axolotl Engine" width={250} height={250} layoutId={"image-axolotl-engine"} className="bg-white"></Header>
+            <Header image="/Horizons.png" alt="Axolotl Engine" width={250} height={250} layoutId={"image-axolotl-engine"} className="bg-(--color-shell)"></Header>
             <h1 className="title-h1 mt-8">Axolotl Engine</h1>
             <div className="text text-lg md:text-xl mt-4">
                 <p>The Axolotl Engine is an in-house game engine developed in <strong className="text-(--color-primary)">C++</strong> that utilizes the <strong className="text-(--color-primary)">OpenGL API</strong> for rendering. 
@@ -23,21 +23,21 @@ export default function AxolotlEngine() {
                     with varying goals and needs, all of which required coordination.</p>
 
                 <p className="mt-2">My <strong className="text-(--color-primary)">primary role</strong> in this project was in the <strong className="text-(--color-primary)">graphics department</strong>, where I developed various 
-                    features including <strong className="text-(--color-primary)">deferred shading</strong>, <strong className="text-(--color-primary)">different types of lighting</strong>, <strong className="text-(--color-primary)">reflections</strong>, <strong className="text-(--color-primary)">bloom</strong>, 
+                    features including <strong className="text-(--color-primary)">deferred shading</strong>, <strong className="text-(--color-primary)">different types of lighting</strong>, <strong className="text-(--color-primary)">reflections</strong>, <strong className="text-(--color-primary)">bloom</strong>,{" "}
                     <strong className="text-(--color-primary)">batching</strong>, <strong className="text-(--color-primary)">tone mapping</strong>, <strong className="text-(--color-primary)">VFX mesh effects</strong> and <strong className="text-(--color-primary)">trails</strong>.
-                    Additionally, as a part of the team, I reviewed pull requests in the repository to ensure <strong className="text-(--color-primary)">high quality</strong> and adherence to <strong className="text-(--color-primary)">programming best practices</strong>
+                    Additionally, as a part of the team, I reviewed pull requests in the repository to ensure <strong className="text-(--color-primary)">high quality</strong> and adherence to <strong className="text-(--color-primary)">programming best practices</strong>{" "}
                     and I also took on the responsibility of implementing some features in the engine and resolving <strong className="text-(--color-primary)">bugs</strong> and <strong className="text-(--color-primary)">memory leaks</strong>.</p>
             </div>
-            <video controls preload="none" playsInline className="mt-4 aspect-video w-full" aria-label="Axolotl Engine graphics showcase">
+            <video controls playsInline className="mt-4 aspect-video w-full" aria-label="Axolotl Engine graphics showcase">
                 <source src="/workSamplersHorizons.mp4" type="video/mp4"></source>
                 Video not available in this browser.
             </video>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
                 <Link href="https://horizons-games.vercel.app/en" target="_blank" rel="noreferrer" aria-label="Visit Horizons Games website">
-                    <FaGlobe className="size-7 navbar-link"/>
+                    <FaGlobe className="size-7 navbar-link ps1-icon-hover ps1-icon-hover--green"/>
                 </Link>
                 <Link href="https://github.com/Horizons-Games/Axolotl-Engine/releases/latest" target="_blank" rel="noreferrer" aria-label="View Axolotl Engine releases on GitHub">
-                    <FaGithubAlt className="size-8 navbar-link" />
+                    <FaGithubAlt className="size-8 navbar-link ps1-icon-hover ps1-icon-hover--red" />
                 </Link>
             </div>
         </div>

@@ -9,7 +9,7 @@ export const metadata = createPageMetadata(config);
 export default function PabloCebolladaDev() {
     return (
         <div className="min-h-dvh">
-            <Header image="/og-image.png" alt="pablocebollada.dev" width={300} height={300} layoutId={"image-pablocebollada-dev"} className="bg-white"></Header>
+            <Header image="/og-image.png" alt="pablocebollada.dev" width={300} height={300} layoutId={"image-pablocebollada-dev"} className="bg-(--color-shell)"></Header>
             <h1 className="title-h1 mt-8">pablocebollada.dev</h1>
             <div className="text text-lg md:text-xl mt-4">
                 <p>
@@ -42,7 +42,7 @@ export default function PabloCebolladaDev() {
             </div>
             <div className="flex flex-row justify-center items-center gap-8 mt-4 mb-12">
                 <Link href="https://github.com/PaablooCH/pablocebollada.dev" target="_blank" rel="noreferrer" aria-label="View this portfolio's source code on GitHub">
-                    <FaGithubAlt className="size-8 navbar-link"/>
+                    <FaGithubAlt className="size-8 navbar-link ps1-icon-hover ps1-icon-hover--blue"/>
                 </Link>
             </div>
 

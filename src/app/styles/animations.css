@@ -1,41 +1,33 @@
-@keyframes bounceIn {
-    0% {
-      transform: translateY(-200px);
-      opacity: 0;
-    }
-  
-    40% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  
-    55% {
-      transform: translateY(-80px);
-    }
-  
-    70% {
-      transform: translateY(0);
-    }
-  
-    80% {
-      transform: translateY(-35px);
-    }
-  
-    90% {
-      transform: translateY(0);
-    }
-  
-    95% {
-      transform: translateY(-12px);
-    }
-  
-    100% {
-      transform: translateY(0);
-    }
+.navbar-menu-enter {
+    animation: bounceIn 1.2s cubic-bezier(.34, 1.56, .64, 1) both;
 }
 
-.bounce {
-    animation: bounceIn 1.2s cubic-bezier(.34, 1.56, .64, 1);
+.navbar-menu-exit {
+    animation: navbar-menu-exit 560ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    55% { transform: translateY(-80px); }
+    70% { transform: translateY(0); }
+    80% { transform: translateY(-35px); }
+    90% { transform: translateY(0); }
+    95% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes navbar-menu-exit {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
 }
 
 @keyframes appearDown {
@@ -94,43 +86,69 @@
     animation: blink 1.2s step-end infinite;
 }
 
-.unblur_backdrop {
-    animation: unblur-backdrop 1s ease-out;
+.navigation-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    overflow: hidden;
+    pointer-events: auto;
 }
 
-@keyframes unblur-backdrop {
-    from {
-        backdrop-filter: blur(8px);
-        opacity: 1;
-    }
-    to {
-        backdrop-filter: blur(0px);
-        opacity: 0;
-    }
+.navigation-transition-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--background);
+    will-change: transform;
 }
 
-@keyframes slide-in-left {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+.navigation-transition-panel--left {
+    left: 0;
 }
 
-.animate_slide_in_left {
-    animation: slide-in-left 1s forwards;
+.navigation-transition-panel--right {
+    left: 50%;
 }
 
-@keyframes slide-in-right {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+.navigation-transition--cover .navigation-transition-panel--left {
+    animation: navigation-cover-left 900ms cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
-.animate_slide_in_right {
-    animation: slide-in-right 1s forwards;
+.navigation-transition--cover .navigation-transition-panel--right {
+    animation: navigation-cover-right 900ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.navigation-transition--reveal .navigation-transition-panel--left {
+    animation: navigation-reveal-left 900ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.navigation-transition--reveal .navigation-transition-panel--right {
+    animation: navigation-reveal-right 900ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@keyframes navigation-cover-left {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes navigation-cover-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes navigation-reveal-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes navigation-reveal-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navigation-transition-panel {
+        animation-duration: 1ms !important;
+    }
 }

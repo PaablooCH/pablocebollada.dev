@@ -85,7 +85,7 @@ export default function Home() {
                     <div className="group relative block h-[90px] w-[72px] shrink-0 sm:h-[140px] sm:w-[115px] md:h-[200px] md:w-42">
                         <Image
                             fill
-                            className="bg-gray-300 object-cover object-[56%_60%] grayscale transition-[filter] group-hover:grayscale-0"
+                            className="bg-(--color-shell) object-cover object-[56%_60%] grayscale transition-[filter] group-hover:grayscale-0"
                             style={{animation: "slideToRight 1.1s ease-in-out"}}
                             src="/profile.png"
                             sizes="(max-width: 639px) 72px, (max-width: 767px) 115px, 168px"
@@ -97,13 +97,13 @@ export default function Home() {
                 <div className="mt-12 sm:mt-28 md:mt-24">
                     <ConsoleTyping block={introductionLines} delay={1000}></ConsoleTyping>
                 </div>
-                <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-yellow-300">π</div>
+                <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-(--color-accent)">π</div>
             </section>
 
-            <SeparatorLine />
+            {/* <SeparatorLine /> */}
 
             {/* About Section */}
-            <section id="focus" aria-labelledby="focus-title" className="px-5 pt-8 pb-12 sm:px-10 sm:pt-12">
+            {/* <section id="focus" aria-labelledby="focus-title" className="px-5 pt-8 pb-12 sm:px-10 sm:pt-12">
                 <h2 id="focus-title" className="title-h2">WHAT I BUILD</h2>
                 <p className="mt-3 max-w-2xl text-lg text">
                     Production software across backend systems, web applications, and graphics.
@@ -114,7 +114,7 @@ export default function Home() {
                         <FocusAreaCard key={area.title} {...area} />
                     ))}
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 }
