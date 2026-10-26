@@ -51,6 +51,14 @@ const introductionLines: CommandLine[] = [
                 text: '        real_impact.' 
             }
         ]
+    },
+    {
+        cmds: [
+            {
+                color: 'entry',
+                text: '    #type "about" or "projects" to navigate'
+            }
+        ]
     }
 ];
 
@@ -79,14 +87,14 @@ export default function Home() {
             <section id="hero" className="relative min-h-[calc(100dvh-66px)] px-5 pt-5 pb-16 sm:px-10">
                 <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:gap-4">
                     <h1 aria-label="Software engineer" className="min-w-0 w-full font-extrabold text-[clamp(1.5rem,8vw,8rem)] leading-[1.05] cursor-default">
-                        <span className="block opacity-0 glow" style={{animation: "appearDown 1s ease-in-out forwards", animationDelay: '0.15s'}}>SOFTWARE</span>
-                        <span className="block pl-5 sm:pl-10 opacity-0 glow" style={{animation: "appearDown 1s ease-in-out forwards", animationDelay: '0.35s'}}>ENGINEER</span>
+                        <span className="block opacity-0 glow" style={{animation: "appearDown 1.6s ease-in-out forwards", animationDelay: '0.15s'}}>SOFTWARE</span>
+                        <span className="block pl-5 sm:pl-10 opacity-0 glow" style={{animation: "appearDown 1.6s ease-in-out forwards", animationDelay: '0.35s'}}>ENGINEER</span>
                     </h1>
                     <div className="group relative block h-[90px] w-[72px] shrink-0 sm:h-[140px] sm:w-[115px] md:h-[200px] md:w-42">
                         <Image
                             fill
                             className="bg-(--color-shell) object-cover object-[56%_60%] grayscale transition-[filter] group-hover:grayscale-0"
-                            style={{animation: "slideToRight 1.1s ease-in-out"}}
+                            style={{animation: "slideToRight 1.8s ease-in-out"}}
                             src="/profile.png"
                             sizes="(max-width: 639px) 72px, (max-width: 767px) 115px, 168px"
                             alt="Pablo Cebollada"
@@ -95,7 +103,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="mt-12 sm:mt-28 md:mt-24">
-                    <ConsoleTyping block={introductionLines} delay={1000}></ConsoleTyping>
+                    <ConsoleTyping block={introductionLines} delay={1800}></ConsoleTyping>
                 </div>
                 <div className="absolute bottom-4 left-10 cursor-default font-extrabold hover:text-(--color-accent)">π</div>
             </section>
