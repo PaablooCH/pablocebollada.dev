@@ -164,6 +164,11 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
             return;
         }
 
+        if (message === 'about' || message === 'projects') {
+            window.location.href = `/${message}`;
+            return;
+        }
+
         const id = Date.now();
         setSubmittedMessages((messages) => [...messages, { id, text: message }]);
         setInputValue('');
@@ -205,7 +210,18 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
                     </p>
                 </div>;
             })}
-            <form onSubmit={handleSubmit} className="mt-2 flex w-full max-w-xl items-center gap-3 code" aria-label="Interactive terminal demo">
+            <form
+                onSubmit={handleSubmit}
+                onClick={(event) => {
+                    if (event.target instanceof Element && event.target.closest("button")) {
+                        return;
+                    }
+
+                    terminalInputRef.current?.focus({ preventScroll: true });
+                }}
+                className="mt-2 flex w-full max-w-xl items-center gap-3 code cursor-text"
+                aria-label="Interactive terminal demo"
+            >
                 <span className="text-lg text-(--color-accent)" aria-hidden="true">%</span>
                 <input
                     ref={terminalInputRef}

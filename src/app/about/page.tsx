@@ -20,13 +20,13 @@ export default function About() {
                 <h2 className="title-h2 hover:text-(--color-accent)">HI, I&apos;M PABLO 👋</h2>
                 <div className="flex flex-col gap-4 mt-4 text-lg md:text-xl text">
                     <p>
-                        My name is Pablo Cebollada, and I&apos;m a full-stack developer currently working on web applications, with experience designing, building, and maintaining production-ready systems.
+                        I&apos;m Pablo Cebollada, a software engineer focused on building reliable web applications and backend services.
                     </p>
                     <p>
-                        I&apos;ve worked across the stack, developing user-facing interfaces, backend logic, and application infrastructure, always with a strong focus on clean code, maintainability, and performance. Before specializing in web development, I gained a strong technical foundation working with lower-level systems in C++, which shaped the way I approach architecture and problem-solving today.
+                        My work spans backend systems, frontend interfaces, databases, and cloud infrastructure. I&apos;ve also built GIS features that bring maps and security data together. Earlier in my career, I worked on C++ graphics engines, where rendering and performance shaped how I approach engineering.
                     </p>
                     <p>
-                        I enjoy building well-structured applications, understanding how every layer fits together, and delivering solutions that are both robust and easy to evolve over time.
+                        I care about clear architecture, practical performance, and building software that teams can maintain and grow with confidence.
                     </p>
                     <div className="flex justify-center gap-8 mt-8">
                         <a href="/Pablo Cebollada - CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Pablo Cebollada's CV (PDF, new tab)" className="p-2 hover:text-(--color-accent) focus-visible:text-(--color-accent) transition-colors duration-300">

@@ -58,7 +58,7 @@ export default function RootLayout({
                         {children}
                         {process.env.VERCEL === "1" && <Analytics />}
                     </main>
-                </MyAnimatePresence>                
+                </MyAnimatePresence>
             </body>
         </html>
     );
