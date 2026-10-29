@@ -1,4 +1,5 @@
 'use client'
+import { useNavigationContext } from "@/libs/navigationProvider";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 type ConsoleTypingProps = {
@@ -54,6 +55,8 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
     const [activeResponseId, setActiveResponseId] = useState<number | null>(null);
     const [responseLength, setResponseLength] = useState(0);
     const terminalInputRef = useRef<HTMLInputElement>(null);
+
+    const { activateOutro } = useNavigationContext();
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -164,8 +167,10 @@ export default function ConsoleTyping({block, speed = 50, delay = 0}: ConsoleTyp
             return;
         }
 
-        if (message === 'about' || message === 'projects') {
-            window.location.href = `/${message}`;
+        const navigationCommand = message.toLowerCase();
+        const urlToNavigate = navigationCommand === 'about' ? "/about" : navigationCommand === 'projects' || navigationCommand === 'project' ? "/projects" : null;
+        if (urlToNavigate) {
+            activateOutro(urlToNavigate);
             return;
         }
 

@@ -8,6 +8,7 @@ import { createPageMetadata } from "./resources/metadata";
 import { Analytics } from "@vercel/analytics/next"
 import { me } from "./resources/content";
 import { MyAnimatePresence } from "@/libs/animatePresence";
+import { NavigationProvider } from "@/libs/navigationProvider";
 
 const jetbrains = JetBrains_Mono({
     subsets: ['latin'],
@@ -52,13 +53,15 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${jetbrains.variable} ${inter.variable} antialiased flex flex-col overflow-x-hidden scroll-smooth background min-h-dvh`}>
                 <a href="#main-content" className="skip-link">Skip to content</a>
-                <NavBar />
-                <MyAnimatePresence>
-                    <main id="main-content" tabIndex={-1} className="grow">
-                        {children}
-                        {process.env.VERCEL === "1" && <Analytics />}
-                    </main>
-                </MyAnimatePresence>
+                <NavigationProvider>
+                    <NavBar />
+                    <MyAnimatePresence>
+                        <main id="main-content" tabIndex={-1} className="grow">
+                            {children}
+                            {process.env.VERCEL === "1" && <Analytics />}
+                        </main>
+                    </MyAnimatePresence>
+                </NavigationProvider>
             </body>
         </html>
     );
