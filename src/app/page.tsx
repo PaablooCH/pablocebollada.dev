@@ -1,7 +1,5 @@
 import ConsoleTyping, { CommandLine } from "@/components/consoleTyping";
-import SeparatorLine from "@/components/separatorLine";
 import Image from "next/image";
-import FocusAreaCard from "@/app/components/focusAreaCard";
 import { createPageMetadata } from "./resources/metadata";
 import { home as config } from "./resources/config";
 
